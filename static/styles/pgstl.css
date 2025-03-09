@@ -1,0 +1,124 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1c2331;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden; /* Prevents full body scrolling */
+}
+
+/* Scrollable Container */
+.container {
+    background-color: #222b40;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 100%; /* Limits height so it's scrollable */
+    overflow-y: auto; /* Enables vertical scrolling */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar for WebKit Browsers */
+.container::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+    background: #1c2331; /* Dark background */
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #5fc9f3; /* Blue scrollbar */
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #4aa8d3; /* Lighter blue on hover */
+}
+
+/* Scrollbar for Firefox */
+.container {
+    scrollbar-color: #5fc9f3 #1c2331; /* Thumb color + track color */
+}
+
+/* Typography */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+hr {
+    border: none;
+    height: 3px;
+    background-color: #5fc9f3;
+    margin: 10px 0;
+}
+
+a {
+    color: #5fc9f3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive List */
+ul {
+    margin-left: 20px;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+/* Code Box */
+.code-box {
+    background-color: #2a3b50;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-family: monospace; 
+    color: #5fc9f3;
+    word-wrap: break-word;
+}
+
+/* Highlighted Words */
+.highlight {
+    color: #5fc9f3;
+    font-weight: bold;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 20px;
+        max-height: 97vh; /* More height for smaller screens */
+    }
+
+    .code-box {
+        font-size: 0.9rem;
+    }
+}
