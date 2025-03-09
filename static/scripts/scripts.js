@@ -2,7 +2,7 @@ document.querySelectorAll(".quiz-container").forEach((quizBox) => {
     const submitBtn = quizBox.querySelector(".submit-btn");
     const feedback = quizBox.querySelector(".quiz-feedback");
     const explanation = quizBox.querySelector(".quiz-explanation");
-    const hiddenContent = quizBox.nextElementSibling; // Get next hidden content
+    const hiddenContent = quizBox.nextElementSibling; // Get the next hidden content
 
     submitBtn.addEventListener("click", function() {
         const selectedOption = quizBox.querySelector('input[type="radio"]:checked');
@@ -20,9 +20,16 @@ document.querySelectorAll(".quiz-container").forEach((quizBox) => {
             quizBox.classList.add("correct");
             quizBox.classList.remove("incorrect", "shake");
             quizBox.innerHTML = explanation.innerHTML;
-            
+
+            // Reveal hidden content (if any)
             if (hiddenContent && hiddenContent.classList.contains("hidden-content")) {
-                hiddenContent.classList.remove("hidden"); // Reveal the next section
+                hiddenContent.classList.remove("hidden");
+            }
+
+            // Find and reveal the next hidden quiz
+            const nextQuiz = quizBox.parentElement.querySelector(".quiz-container.hidden");
+            if (nextQuiz) {
+                nextQuiz.classList.remove("hidden");
             }
         } else {
             // Incorrect Answer: Apply shake effect & keep red border
