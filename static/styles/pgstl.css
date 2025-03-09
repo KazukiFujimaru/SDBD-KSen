@@ -95,9 +95,24 @@ ul {
     padding: 15px;
     border-radius: 5px;
     margin: 20px 0;
-    font-family: monospace; 
-    color: #5fc9f3;
-    word-wrap: break-word;
+    font-family: 'Fira Code', monospace;
+    color: #d4d4d4;
+    overflow-x: auto;
+}
+
+/* Change background color of <pre> and <code> blocks */
+pre {
+    background-color: #2a3b50 !important; /* Ensures it overrides Prism's default */
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow-x: auto; /* Adds horizontal scrolling if needed */
+}
+
+/* Optional: Ensure <code> inside <pre> also has correct styling */
+pre code {
+    background-color: transparent; /* Keeps the background consistent */
+    color: #ffffff; /* Adjust text color if needed */
 }
 
 /* Highlighted Words */
@@ -116,6 +131,10 @@ ul {
     .container {
         padding: 20px;
         max-height: 97vh; /* More height for smaller screens */
+    }
+
+    .token {
+        font-size: 0.9rem;
     }
 
     .code-box {

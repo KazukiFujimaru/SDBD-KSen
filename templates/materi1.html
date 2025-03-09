@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
-    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
-    <!-- Prism.js Core -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <!-- Language Support for Python & SQL -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
 </head>
 <body>
 
@@ -28,12 +21,8 @@
 
         <!-- Code Box Form -->
         <div class="code-box">
-            <code>This is code box. What if i overflow this one wuth a bunch of text</code>
+            <code>This is code box</code>
         </div>
-        <pre class="code-box"><code class="language-python">def greet():
-            print("Hello, World!")</code></pre>
-        <pre class="code-box"><code class="language-sql">SELECT * FROM users WHERE age > 18;</code></pre>
-        
 
         <div class="accordion">
             <button class="accordion-header">

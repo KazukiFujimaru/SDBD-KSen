@@ -13,3 +13,7 @@ def configure_routes(app):
     @app.route("/elements")
     def elements():
         return render_template("elements.html")
+    
+    @app.route("/materi/p1")
+    def pertemuan1():
+        return render_template("materi1.html")
