@@ -249,3 +249,60 @@ h2 {
 .practice-btn:hover {
     background-color: #4aa8d3;
 }
+
+.accordion {
+    width: 100%;
+    background-color: #222b40; /* Matches container and quiz-container */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    width: 100%;
+    background-color: #2a3b50; /* Matches code-box and hover effect */
+    color: #5fc9f3; /* Matches highlight and links */
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.accordion-header:hover {
+    color: #b3e5f9; /* Keeps highlight color consistent */
+}
+
+.accordion-header:hover .accordion-icon {
+    filter: brightness(1.5); /* Makes the triangle icon brighter */
+}
+
+.accordion-icon {
+    transition: transform 0.3s;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 12px;
+    background-color: #1c2331; /* Matches container and quiz-container */
+    color: #e0e0e0; /* Matches body text */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.accordion-content p {
+    padding-top: 12px;
+}
+
+.accordion.open .accordion-icon {
+    transform: rotate(90deg);
+}
+
+.accordion.open .accordion-content {
+    max-height: 200px;
+    padding: 12px;
+}

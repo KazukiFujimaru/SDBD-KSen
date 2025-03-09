@@ -41,3 +41,10 @@ document.querySelectorAll(".quiz-container").forEach((quizBox) => {
         }
     });
 });
+
+document.querySelectorAll(".accordion-header").forEach(button => {
+    button.addEventListener("click", function() {
+        const accordion = this.parentElement;
+        accordion.classList.toggle("open");
+    });
+});

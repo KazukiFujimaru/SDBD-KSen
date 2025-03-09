@@ -9,3 +9,7 @@ def configure_routes(app):
     @app.route("/testpg")
     def testpg():
         return render_template("testpg.html")
+    
+    @app.route("/elements")
+    def elements():
+        return render_template("elements.html")
