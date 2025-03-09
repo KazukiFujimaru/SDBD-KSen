@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Judul Aplikasi -->
-        <title>Test</title>
-        <!--Link Referensi Style CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
 
-    <!-- Isi Aplikasi -->
-    <body>
-        <h1>Testing Vercel</h1>
-        <p>Test deploy di vercel</p>
-    </body>
+    <header>
+        <h1>SDBD K-Sen</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Materi</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>SDBD K-Sen</h2>
+            <p>Ini adalah testing.</p>
+        </section>
+        <section class="content">
+            <h2>About K-Sen</h2>
+            <p>I wonder what.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact us wawa wawa wawa</p>
+    </footer>
+
+</body>
 </html>
