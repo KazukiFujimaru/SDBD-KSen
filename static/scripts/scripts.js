@@ -8,7 +8,7 @@ document.querySelectorAll(".quiz-container").forEach((quizBox) => {
         const selectedOption = quizBox.querySelector('input[type="radio"]:checked');
 
         if (!selectedOption) {
-            feedback.innerHTML = "<p style='color: red;'>Please select an answer!</p>";
+            feedback.innerHTML = "<p style='color: red;'>Tolong pilih salah satu jawaban</p>";
             return;
         }
 
@@ -34,7 +34,7 @@ document.querySelectorAll(".quiz-container").forEach((quizBox) => {
         } else {
             // Incorrect Answer: Apply shake effect & keep red border
             quizBox.classList.add("incorrect", "shake");
-            feedback.innerHTML = "<p style='color: red;'>Incorrect! Try again.</p>";
+            feedback.innerHTML = "<p style='color: red;'>Jawaban kurang tepat. Coba lagi.</p>";
 
             // Remove shake effect after animation
             setTimeout(() => quizBox.classList.remove("shake"), 500);

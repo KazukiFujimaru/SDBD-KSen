@@ -3,111 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resource</title>
+    <title>Pertemuan satu : Intro</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
 </head>
 <body>
-
     <div class="container">
-        <h1>This is title</h1>
+        <h1>Pengantar Struktur Data dan Basis Data</h1>
         <hr>
-        <p>This is link <a href="#">Lorem Ipsum</a>.</p>
-        <p>This is color <span class="highlight">Lorem Ipsum</span></p>
-        <ul>
-            <li>This is List</li>
-            <li>Dolor sit amet</li>
-            <li>consectetur adipiscing elit</li>
-        </ul>
-
-        <!-- Code Box Form -->
-        <div class="code-box">
-            <code>This is code box</code>
-        </div>
-
-        <div class="accordion">
-            <button class="accordion-header">
-                Accordion?
-                <span class="accordion-icon">▶</span>
-            </button>
-            <div class="accordion-content">
-                <p>Accordion text is here.</p>
-            </div>
-        </div>
-
-        <!-- Quiz Form -->
-        <div class="quiz-container" data-quiz="1">
-            <h2>Question?</h2>
-            <p>This is question</p>
-
-            <div class="quiz-options">
-                <label class="quiz-option" data-correct="true">
-                    <input type="radio" name="quiz-1"> This is answer.
-                </label>
-                <label class="quiz-option">
-                    <input type="radio" name="quiz-1"> This is wrong.
-                </label>
-                <label class="quiz-option">
-                    <input type="radio" name="quiz-1"> This is wrong too.
-                </label>
-            </div>
-
-            <button class="submit-btn">Submit</button>
-
-            <div class="quiz-explanation hidden">
-                <p>This is explanation.</p>
-            </div>
-        </div>
+        <p> 
+            Komputer pada dasarnya tidak pintar, kita membuat komputer jadi pintar. 
+            Kita semua adalah ahli sihir yang memasukan simbol-simbol aneh <span class="highlight">(Bahasa Pemrograman)</span> untuk memaksa seperangkat batu-batu ajaib yang memiliki ukiran khusus <span class="highlight">(Perangkat Keras Komputer)</span> untuk dapat melakukan hal-hal ajaib.
+            Dengan ilmu yang awalnya dikuasai oleh sesepuh luhur<span class="highlight">(Ilmuwan Informatika)</span>, komputer menjadi lebih bisa diakses oleh semua kalangan dengan menurunkan jurus yang lebih sederhana<span class="highlight">(Abstraksi pada Komputer)</span>.
+            Akhirnya, ilmu ini bahkan dapat digunakan dan dikuasai secara bertahap oleh teman-teman semua. 
+        </p>
+        <br>
+        <p><h3>Esensi Kerja Komputer</h3>
+            Komputer hanya memahami bahasa mesin, yang sering disebut dengan bahasa biner. 
+            Bahasa biner ini kemudian dikonversi menjadi bentuk yang lebih mudah dipahami oleh manusia (seperti huruf).
+            Dari huruf-huruf ini terbentuk bahasa, dan dari bahasa terbentuk bahasa pemrograman.
+            Bahasa pemrograman menyediakan metode yang mudah agar kita dapat membuat suatu program pada komputer.
+            Namun, dengan begini kebutuhan pemrograman pun semakin kompleks, dan jumlah data yang diproses makin besar.
+            Oleh karena itu, diperlukan struktur yang jelas dan efisien dalam pengelolaan data agar sistem dapat bekerja secara optimal.
+        </p>
+        <br>
+        <p><h3>Struktur Data</h3>
+            Struktur data adalah cara mengorganisir dan menyimpan data dalam komputer sehingga dapat digunakan secara efisien.
+            Struktur data mencakup berbagai metode penyimpanan data, seperti array, linked list, stack, queue, tree, dan graph. 
+            Masing-masing struktur data memiliki karakteristik dan kegunaannya sendiri tergantung pada kebutuhan aplikasi.
+        </p>
+        <br>
+        <p><h3>Struktur Data</h3>
+            
+        </p>
         
-        <div class="hidden-content hidden">
-            <p>This is content continue</p>
-        </div>
-
-        <!-- Quiz 2 -->
-        <div class="quiz-container hidden" data-quiz="2">
-            <h2>What is the correct way to declare a variable in JavaScript?</h2>
-            <div class="quiz-options">
-                <label class="quiz-option" data-correct="true">
-                    <input type="radio" name="quiz-2"> let myVar = 10;
-                </label>
-                <label class="quiz-option">
-                    <input type="radio" name="quiz-2"> variable myVar = 10;
-                </label>
-                <label class="quiz-option">
-                    <input type="radio" name="quiz-2"> declare myVar = 10;
-                </label>
-            </div>
-
-            <button class="submit-btn">Submit</button>
-
-            <div class="quiz-feedback"></div>
-
-            <div class="quiz-explanation hidden">
-                <p><strong>Correct!</strong> JavaScript uses <code>let</code>, <code>const</code>, or <code>var</code> to declare variables.</p>
-            </div>
-        </div>
-           
-        <div class="hidden-content hidden">
-            <p>Now, let's continue to the next topic...</p>
-            <!-- Practices Form -->
-            <hr>
-            <h2>Practices</h2>
-        
-            <div class="practice-item">
-                <div class="practice-header">
-                    <span class="practice-title">1. This is Question</span>
-                </div>
-                <p>This is detail</p>
-                <a href="#" class="practice-btn">Practice</a>
-            </div>
-        
-            <div class="practice-item">
-                <div class="practice-header">
-                    <span class="practice-title">2. Draw Squares At Different Positions</span>
-                </div>
-                <p>Now you can place and draw one shape, but how about drawing several? In this practice, you'll place three squares side by side to really get the hang of properties.</p>
-                <a href="#" class="practice-btn">Practice</a>
-            </div>          
-        </div>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
