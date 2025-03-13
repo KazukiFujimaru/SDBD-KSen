@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pertemuan satu : Intro</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python & SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,25 +24,239 @@
             Akhirnya, ilmu ini bahkan dapat digunakan dan dikuasai secara bertahap oleh teman-teman semua. 
         </p>
         <br>
-        <p><h3>Esensi Kerja Komputer</h3>
-            Komputer hanya memahami bahasa mesin, yang sering disebut dengan bahasa biner. 
+        <h3>Esensi Kerja Komputer</h3>
+        <p>
+            Komputer hanya memahami bahasa mesin, yang sering disebut dengan <a target="_blank" rel="noopener" href="https://satu.ac.id/bandung/informatika/2025/03/11/bahasa-biner-rahasia-di-balik-komputer-dan-gadget-kesayanganmu/">bahasa biner</a>. 
             Bahasa biner ini kemudian dikonversi menjadi bentuk yang lebih mudah dipahami oleh manusia (seperti huruf).
-            Dari huruf-huruf ini terbentuk bahasa, dan dari bahasa terbentuk bahasa pemrograman.
+            Dari huruf-huruf ini terbentuk bahasa, dan dari bahasa terbentuk <a target="_blank" rel="noopener" href="https://www.hostinger.com/id/tutorial/bahasa-pemrograman">bahasa pemrograman</a>.
+            <br><br>
             Bahasa pemrograman menyediakan metode yang mudah agar kita dapat membuat suatu program pada komputer.
             Namun, dengan begini kebutuhan pemrograman pun semakin kompleks, dan jumlah data yang diproses makin besar.
-            Oleh karena itu, diperlukan struktur yang jelas dan efisien dalam pengelolaan data agar sistem dapat bekerja secara optimal.
+            Oleh karena itu, diperlukan <span class="highlight">struktur yang jelas dan efisien dalam pengelolaan data</span> agar sistem dapat bekerja secara optimal.
         </p>
         <br>
-        <p><h3>Struktur Data</h3>
-            Struktur data adalah cara mengorganisir dan menyimpan data dalam komputer sehingga dapat digunakan secara efisien.
-            Struktur data mencakup berbagai metode penyimpanan data, seperti array, linked list, stack, queue, tree, dan graph. 
-            Masing-masing struktur data memiliki karakteristik dan kegunaannya sendiri tergantung pada kebutuhan aplikasi.
+        <h3>Struktur Data</h3>
+        <p>
+            Struktur data adalah cara <span class = "highlight">mengorganisir dan menyimpan data</span> dalam komputer sehingga dapat digunakan secara efisien.
+            Struktur data mencakup berbagai metode penyimpanan data, seperti <span class = "highlight">array, linked list, stack, queue, tree, dan graph</span>. 
+            Masing-masing struktur data memiliki karakteristik dan kegunaannya sendiri tergantung pada kebutuhan aplikasi.</p>
+        <br>
+        <h3>Mengapa Struktur Data Diperlukan?</h3>
+        <p>
+            Struktur data sangat penting dalam pengembangan perangkat lunak karena berkaitan erat dengan efisiensi algoritma. Dua aspek utama yang dipertimbangkan dalam pemilihan struktur data adalah:
+            <ul>
+                <li><a target="_blank" rel="noopener" href="https://medium.com/bee-solution-partners/penjelasan-sederhana-tentang-time-complexity-dan-big-o-notation-4337ba275cfe">Time Complexity</a>: Waktu yang dibutuhkan untuk menjalankan suatu operasi pada struktur data. Misalnya pada pencarian data.</li>
+                <li><a target="_blank" rel="noopener" href="https://medium.com/bee-solution-partners/penjelasan-sederhana-tentang-time-complexity-dan-big-o-notation-4337ba275cfe">Space Complexity</a>: Jumlah memori yang digunakan oleh struktur data. Misalnya pada besarnya RAM yang dipakai dalam jalannya program.</li>
+            </ul>
         </p>
         <br>
-        <p><h3>Struktur Data</h3>
-            
-        </p>
+        <div class="quiz-container" data-quiz="1">
+            <h4>Apa esensi dari Struktur Data ?</h4>
+
+            <div class="quiz-options">
+                <label class="quiz-option" data-correct="false">
+                    <input type="radio" name="quiz-1"> Mempersulit hidup para programmer dengan ngoding lebih banyak.
+                </label>
+                <label class="quiz-option" data-correct="false">
+                    <input type="radio" name="quiz-1"> Menyusun data agar tertata rapi dan enak dilihat.
+                </label>
+                <label class="quiz-option" data-correct="false">
+                    <input type="radio" name="quiz-1"> Mengelola struktur kerangka dari sebuah data.
+                </label>
+                <label class="quiz-option" data-correct="true">
+                    <input type="radio" name="quiz-1"> Menerapkan bentuk data yang paling cepat dan efisien.
+                </label>
+                <label class="quiz-option" data-correct="false">
+                    <input type="radio" name="quiz-1"> Membuat bentuk grafis dari data-data yang ada.
+                </label>
+            </div>
+
+            <button class="submit-btn">Jawab</button>
+
+            <div class="quiz-feedback"></div>
+
+            <div class="quiz-explanation hidden">
+                <p>
+                    Sesuai dengan tujuannya, struktur data mengoptimalkan <b>penggunaan waktu (time complexity) dan ruang (space complexity)</b> saat data diproses oleh program.
+                    <br><br>
+                    Walaupun konsep struktur data sekilas terlihat rumit, namun struktur data ini membantu para programmer untuk membuat aplikasi yang lebih ringan dan reponsif.
+                    <br><br>
+                    Namun struktur data ini bukan untuk <a target="_blank" rel="noopener" href="https://dac.telkomuniversity.ac.id/visualisasi-data-pengertian-fungsi-dan-contohnya/">visualisasi data</a>. Struktur data sendiri lebih berfokus pada penyimpanan dan pengolahan data di balik layar. 
+                </p>
+            </div>
+        </div>
         
+        <div class="hidden-content hidden">
+            <h3>Contoh Penerapan Sederhana Struktur Data</h3>
+            <p>Sebagai contoh sederhana, kita bisa melihat bagaimana <a target="_blank" rel="noopener" href="https://ids.ac.id/struktur-data-stack-pengertian-jenis-dan-contoh/">struktur data stack</a> digunakan dalam fungsi undo/redo. 
+                Stack bekerja dengan prinsip Last In, First Out (LIFO), di mana elemen terakhir yang dimasukkan adalah elemen pertama yang diambil. 
+                Berikut adalah contoh implementasi stack dalam Python:
+                <pre class="code-box"><code class="language-python">stack = []  # Membuat array stack
+stack.append('A')  # Menambahkan nilai A ke array
+stack.append('B')  # Menamnbahkan nilai B ke array
+stack.append('C')  # Menambahkan nilai C ke array
+print('x') # Menampilkan semua isi array
+print(stack.pop())  # Output: C  </code></pre>
+            </p>
+            <div class="accordion">
+                <button class="accordion-header">
+                    Penjelasan lebih lanjut
+                    <span class="accordion-icon">▶</span>
+                </button>
+                <div class="accordion-content">
+                    <p>'stack' disana adalah variabel dengan tipe array.
+                        Array dapat berisi sekumpulan elemen yang berbeda walaupun memiliki jenis data yang berbeda.
+                        Dalam contoh di atas, array stack berisi tiga elemen, yaitu A B dan C.
+                        <br><br>
+                        Karena 'stack' pada kode tersebut adalah variabel, maka kata 'stack' bisa diubah sesuai dengan keinginan anda.
+                        <br><br>
+                        Adapun untuk fungsi yang digunakan pada kode ini adalah :
+                        <br>
+                        <span class="highlight">(variabel).append</span> = menambah elemen di urutan paling akhir array.
+                        <br>
+                        <span class="highlight">(variabel).pop</span> = mengeluarkan elemen di urutan paling akhir array.
+                        <br><br>
+                        Untuk belajar lebih lanjut, teman-teman dapat <span class = "highlight">mencoba kode Python</span> tersebut di aplikasi yang teman-teman sudah pasang (seperti Visual Studio Code atau IDE Python) atau di website yang dapat menjalankan kode python (seperti <a target="_blank" rel="noopener" href="https://www.programiz.com/python-programming/online-compiler/">Programiz</a>, <a target="_blank" rel="noopener" href="https://www.online-python.com/">OnlinePython</a>, dan program lain yang serupa)
+                        <br><br>
+                        Jangan ragu untuk mencoba :D
+                    </p>
+                </div>
+            </div>
+            <p>
+                Dalam praktikum Strukutur Data, bahasa pemrograman yang paling optimal adalah <a target="_blank" rel="noopener" href="https://www.petanikode.com/c-untuk-pemula/">bahasa pemrograman C</a>.
+                Bahasa C bisa dibilang paling optimal karena kita dapat melihat langsung pengaruh dari struktur data pada performa aplikasi, termasuk pada kecepatan aplikasi dan alokasi sumber daya memori.
+                Namun agar praktik dapat berfokus pada pemahaman teman-teman dan tidak terlalu sulit, kita akan menggunakan <a target="_blank" rel="noopener" href="https://www.dicoding.com/blog/python-pengertian-contoh-penggunaan-dan-manfaat-mempelajarinya/">bahasa pemrograman Python</a> dalam praktikum ini.
+            </p>
+            <br>
+            <hr>
+            <br>
+            <h3>Basis Data</h3>
+            <p>
+                Basis Data atau yang sering disebut Database adalah kumpulan data dengan tipe-tipe berbeda yang terorganisir dan disimpan dalam bentuk digital serta dapat diakses secara sistematis (biasanya melalui <a target="_blank" rel="noopener" href="https://www.cloudeka.id/id/berita/teknologi/pengertian-dbms/">DBMS</a>).
+                Database dapat berisi huruf, nomor, foto, video, dokumen, dan data-data lainnya.
+                <br><br>
+                Jika teman-teman telusuri, Database sendiri memiliki berbagai macam database sesuai dengan kebutuhan aplikasinya.
+                Namun, secara luas; database dapat dibagi menjadi dua, yaitu <span class="highlight"></span>database dengan sistem tabel (SQL Database)</span> dan <span class="highlight">database dengan sistem non tabel (NoSQL Database)</span>.
+                <br><br>
+                Adapun pada praktikum ini, kita akan menggunakan <a target="_blank" rel="noopener" href="https://www.dewaweb.com/blog/sql-pengertian-fungsi-beserta-perintah-dasarnya/">bahasa SQL</a> karena bahasa SQL memudahkan pemahaman tentang bagaimana Database bekerja.
+            </p>
+            <br>
+            <h3>Bagaimana Database Digunakan ?</h3>
+            <p>
+                Dalam suatu aplikasi, database digunakan untuk <span class="highlight">menyimpan, mengelola, dan mengambil data</span> agar aplikasi dapat berjalan.
+                Penggunaan database dapat ditemukan dalam aksi-aksi seperti:
+                <ul>
+                    <li>Pendaftaran dan login pengguna ke aplikasi, aplikasi akan menggunakan data username dan password pengguna di database.</li>
+                    <li>Upload foto ke sosial media, aplikasi akan menerima foto yang akan di upload dan menyimpan foto tersebut ke database.</li>
+                    <li>Pembayaran barang di aplikasi E-Commerce, barang yang sudah dibayar akan diubah statusnya di database agar hilang dari keranjang dan masuk ke status pengiriman.</li>
+                </ul>
+            </p>
+            <br>
+            <div class="quiz-container" data-quiz="1">
+                <h4>Manakah pernyataan berikut yang benar tentang database?</h4>
+    
+                <div class="quiz-options">
+                    <label class="quiz-option">
+                        <input type="radio" name="quiz-1"> Mengatur tata letak tampilan aplikasi.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="quiz-1"> Mengatur fitur-fitur keamanan aplikasi.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="quiz-1"> Membuat seluruh fungsi aplikasi berjalan.
+                    </label>
+                    <label class="quiz-option" data-correct="true">
+                        <input type="radio" name="quiz-1"> Mengelola data yang berada pada aplikasi.
+                    </label>
+                </div>
+    
+                <button class="submit-btn">Submit</button>
+    
+                <div class="quiz-feedback"></div>
+    
+                <div class="quiz-explanation hidden">
+                    <p>
+                        Database hanya berhubungan dengan hal-hal yang berkaitan dengan pengelolaan data pada aplikasi.
+                        <br>
+                        Memang database dapat merubah tampilan dengan menghilangkan data, membantu keamanan aplikasi, dan membuat fungsi aplikasi yang berkaitan dengan data dapat berjalan dengan sesuai. 
+                        Tetapi aspek-aspek tersebut dapat dilakukan dengan kolaborasi antar bagian dari aplikasi.
+                    </p>
+                </div>
+            </div>
+            <div class = "hidden-content hidden">
+                <h3>Contoh Penerapan Sederhana Basis Data</h3>
+                <p>
+                    Sebagai contoh sederhana, kita bisa melihat bagaimana data disimpan dalam database menggunakan SQL. 
+                    Berikut adalah contoh pembuatan tabel dan penyisipan data dalam database menggunakan SQL:
+                    <pre class="code-box"><code class="language-sql">-- Pembuatan tabel 'Mahasiswa'.
+CREATE TABLE Mahasiswa (  
+ID INT PRIMARY KEY,  
+Nama VARCHAR(100),  
+Jurusan VARCHAR(50)  
+); 
+-- Memasukan data kedalam tabel 'Mahasiswa'.
+INSERT INTO Mahasiswa (ID, Nama, Jurusan) VALUES (1, 'Lysander', 'Teknologi Informasi');
+-- Mengambil data dar tabel 'Mahasiswa' dan menampilkannya.
+SELECT * FROM Mahasiswa;</code></pre>
+                </p>
+                <div class="accordion">
+                    <button class="accordion-header">
+                        Penjelasan lebih lanjut
+                        <span class="accordion-icon">▶</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>'Mahasiswa' di sini adalah nama tabel yang akan dibuat dalam database. 
+                            Tabel ini berfungsi untuk menyimpan data mahasiswa dengan beberapa atribut, yaitu ID, Nama, dan Jurusan.
+                            <br><br>
+                            Pada database, kita dapat membuat tabel sesuai dengan keperluan dan dapat menyesuaikan struktur dari tabel tersebut.
+                            Misalnya jika teman-teman ingin menambah kolom baru dengan atribut tambahan.
+                            Selain itu, nama tabel itu bebas dan dapat disesuaikan dengan kebutuhan.
+                            <br><br>
+                            Adapun untuk perintah yang digunakan pada kode ini adalah:
+                            <br>
+                            <span class="highlight">CREATE TABLE</span> (nama_tabel) (...); - Digunakan untuk membuat tabel baru dalam database.
+                            <br>
+                            <span class="highlight">INSERT INTO</span> (nama_tabel) <span class="highlight">VALUES</span> (...); - Digunakan untuk menambahkan data ke dalam tabel yang telah dibuat.
+                            <br>
+                            <span class="highlight">SELECT</span> * <span class="highlight">FROM</span> (nama_tabel); -Digunakan untuk mengambil dan menampilkan semua data dari tabel yang dipilih.
+                            <br><br>
+                            Untuk belajar lebih lanjut, teman-teman dapat <span class = "highlight">mencoba kode SQL</span> tersebut di aplikasi DBMS (seperti SQLyog, DB Browser, dan aplikasi serupa) atau di website yang dapat menjalankan kode SQL (seperti <a target="_blank" rel="noopener" href="https://www.programiz.com/sql/online-compiler">Programiz</a>, <a target="_blank" rel="noopener" href="https://sqliteonline.com/">SQliteOnline</a>, dan program lain yang serupa)
+                        <br><br>
+                        Selamat mencoba dan jangan putus asa :D
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <h2>Tugas</h2>
+                <div class="practice-item">
+                    <div class="practice-header">
+                        <span class="practice-title">(Opsional) Install aplikasi yang dapat menjalankan kode Python.</span>
+                    </div>
+                    <p>
+                        Aplikasi yang direkomendasikan adalah <b>Visual Studio Code</b> untuk desktop, dan <b>PyDroid</b> untuk mobile.
+                        <br><br>
+                        Namun teman-teman tetap bisa menggunakan aplikasi online untuk menjalankan kode python juga.
+                    </p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-header">
+                        <span class="practice-title">1. Coba-coba Python (tidak perlu dikumpulkan) </span>
+                    </div>
+                    <p>
+                        Silahkan biasakan dulu penggunaan Python dengan mencoba program-program sederhana berbahasa python
+                        <br>
+                        Salah satunya dapat di cek di <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_examples.asp">W3Schools</a> dan <a target="_blank" rel="noopener" href="https://github.com/Python-World/python-mini-projects">Python Mini Project</a>
+                    </p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-header">
+                        <span class="practice-title">2. Buat Laporan Sederhana</span>
+                    </div>
+                    <p>Buatlah laporan sederhana tentang Struktur Data dan Basis Data. Klik kerjakan untuk melihat detail tugas</p>
+                    <a target="_blank" rel="noopener" href="https://pastebin.com/raw/3CM9j0wa" class="practice-btn">Kerjakan</a>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
