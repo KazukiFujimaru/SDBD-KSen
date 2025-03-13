@@ -133,12 +133,21 @@ pre code {
         max-height: 97vh; /* More height for smaller screens */
     }
 
-    .token {
-        font-size: clamp(0.7rem, 2vw, 1rem);
+    .code-box,
+    .code-box code {
+    font-size: 0.7rem !important;
     }
 
-    .code-box {
-        font-size: clamp(0.7rem, 2vw, 1rem);
+    .accordion-header {
+        font-size: 0.7rem;
+    }
+
+    .quiz-container{
+        font-size: 0.7rem;
+    }
+
+    .quiz-option input[type="radio"] {
+        transform: scale(0.6); /* Adjust size (0.7 = 70% of default size) */
     }
 }
 
