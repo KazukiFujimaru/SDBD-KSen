@@ -48,3 +48,5 @@ document.querySelectorAll(".accordion-header").forEach(button => {
         accordion.classList.toggle("open");
     });
 });
+
+document.getElementById("year").textContent = new Date().getFullYear();
