@@ -100,6 +100,15 @@ ul {
     overflow-x: auto;
 }
 
+.code-bit {
+    background-color: grey;
+    font-family: 'Fira Code', monospace;
+    color: #d4d4d4;
+    border-radius: 5px;
+    padding: 1px;
+    overflow-x: auto;
+}
+
 /* Change background color of <pre> and <code> blocks */
 pre {
     background-color: #2a3b50 !important; /* Ensures it overrides Prism's default */
