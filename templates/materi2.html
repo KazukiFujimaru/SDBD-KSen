@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan Dua : DT & ADT</title>
+    <title>Pertemuan Dua : Tipe Data</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
     <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
     <!-- Prism.js Core -->
@@ -14,30 +15,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tipe Data & Tipe Data Abstrak</h1>
+        <h1>Tipe Data</h1>
         <hr>
         <p> 
-            Dalam pemrograman, struktur data merupakan cara untuk mengorganisir dan menyimpan data agar dapat diakses dan dimodifikasi secara efisien. 
-            Beberapa struktur data telah didefinisikan secara langsung oleh bahasa pemrograman, seperti integer, string, dan array. 
-            Namun, ada juga struktur data yang tidak tersedia secara langsung dan harus didefinisikan oleh programmer sendiri. 
-            Struktur data yang didefinisikan oleh programmer ini disebut sebagai Abstract Data Type (ADT). 
-            ADT adalah konsep yang mendefinisikan cara kerja dan perilaku suatu struktur data tanpa menentukan implementasi spesifiknya. 
+            Salah satu praktik struktur data adalah dengan membuat kerangka aturan tentang bagaimana data dapat saling berinteraksi.
+            Sesuai dengan pengertian struktur data, ini berarti bahwa data memerlukan suatu aturan tetap agar dapat berjalan dengan jelas dan konsisten.
+            Akirnya, Tipe data diciptakan untuk keperluan tersebut.
         </p>
         <br>
         <h3>Pengertian Tipe Data</h3>
         <p>
-            Tipe data adalah kategori yang digunakan dalam pemrograman untuk menentukan jenis nilai yang dapat disimpan dan operasi-operasi yang dapat dilakukan pada nilai tersebut.
+            <span class="highlight">Tipe data</span> adalah kategori yang digunakan dalam pemrograman untuk <span class="highlight">menentukan jenis nilai yang dapat disimpan</span> dan <span class="highlight">operasi-operasi yang dapat dilakukan</span> pada nilai tersebut.
             Setiap bahasa pemrograman memiliki tipe data dasar yang dapat digunakan untuk menyimpan berbagai jenis informasi, seperti angka, teks, dan objek kompleks.
-            Umumnya, tipe data dapat dikategorikan menjadi tiga, yaitu tipe data dasar (primitif), tipe data komposit, dan tipe data abstrak.
+            Umumnya, tipe data dapat dikategorikan menjadi tiga, yaitu <b>tipe data dasar (primitif)</b>, <b>tipe data komposit</b>, dan <b>tipe data abstrak</b>.
             <br><br>
-            Jadi pada struktur data, tipe data menjadi dasar fondasi untuk membentuk struktur data. 
+            Jadi pada struktur data, <span class="highlight">tipe data menjadi dasar fondasi untuk membentuk struktur data.</span> 
             Banyak struktur data yang dikembangkan dari tipe data primitif dan komposit.
             Tipe data abstrak menjadi penghubung antara tipe data dan struktur data dengan menentukan tindakan atau operasi yang data dapat lakukan tetapi membiarkan penerapannya fleksibel.
         </p>
         <br>
         <h3>Tipe Data Primitif</h3>
         <p>
-            Tipe data primitif adalah tipe data dasar yang disediakan secara langsung oleh bahasa pemrograman dan tidak terdiri dari komponen yang lebih kecil.
+            <span class="highlight">Tipe data primitif</span> adalah <span class="highlight">tipe data dasar yang disediakan secara langsung oleh bahasa pemrograman</span> dan tidak terdiri dari komponen yang lebih kecil.
             Tipe data ini digunakan untuk menyimpan nilai sederhana dan memiliki operasi bawaan yang dapat dilakukan tanpa perlu definisi tambahan (tidak perlu dibuat dalam kode sebelum digunakan). 
             Tipe data primitif yang biasa ditemukan pada seluruh bahasa pemrograman diantaranya mencakup:
             <ul>
@@ -73,7 +72,7 @@
             </div>
         </div>
         <p>
-            Berbeda dengan bahasa lain, bahasa python menyediakan fitur pendeteksian tipe data otomatis sehingga kita tidak perlu menuliskan tipe data pada variabel. Fitur ini disebut <a target="_blank" rel="noopener" href="">Dynamic Typiing</a>
+            Berbeda dengan bahasa lain, bahasa python menyediakan fitur pendeteksian tipe data otomatis sehingga kita tidak perlu menuliskan tipe data pada variabel. Fitur ini disebut <a target="_blank" rel="noopener" href="">Dynamic Typing</a>
             Python akan menentukan tipe data berdasarkan isi dari variabel. Untuk keterangan lebih lanjut, teman-teman dapat membuka link berikut : <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_datatypes.asp">Tipe Data Python W3Schools</a>
             <br>
             Kelebihan dari sitem dynamic typing adalah penulisan variabel menjadi lebih sederhana sehingga pemrograman lebih mudah.
@@ -112,7 +111,7 @@
         <div class="hidden-content hidden">
             <h3>Tipe Data Komposit</h3>
             <p>
-                Tipe data komposit adalah tipe data yang mampu menyimpan lebih dari satu nilai dalam satu variabel dengan berbagai cara pengorganisasian data. 
+                <span class="highlight">Tipe data komposit</span> adalah tipe data yang <span class="highlight">mampu menyimpan lebih dari satu nilai dalam satu variabel</span> dengan berbagai cara pengorganisasian data. 
                 Tipe ini digunakan untuk mengelola kumpulan data yang memiliki hubungan atau relasi.
             </p>
             <br>
@@ -131,12 +130,12 @@ print(koordinat)  # Output: (12.5, 45.7)</code></pre>
             Data dalam tipe komposit sering memiliki keterkaitan antar elemen. Oleh karena itu, data ini dapat disusun dalam berbagai bentuk, seperti:
             <ul>
                 <li>
-                    Linier, yaitu struktur data yang menyusun elemen secara berurutan seperti Array dan Linked List. Contoh :
+                    <span class="highlight">Linier</span>, yaitu struktur data yang menyusun elemen secara berurutan seperti Array dan Linked List. Contoh :
                     <pre class = "code-box"><code class ="language-python">antrian = ["Oberon", "Lysander", "Hermia"]  # Elemen disini disusun secara linier.
 print(antrian[0])  # Output: Oberon</code></pre>
                 </li>
                 <li>
-                    Hierarkis, Struktur data yang memiliki hubungan <i>parent-child</i> atau node (titik) yang saling terhubung. Contoh :
+                    <span class="highlight">Hierarkis</span>, Struktur data yang memiliki hubungan <i>parent-child</i> atau node (titik) yang saling terhubung. Contoh :
                     <pre class="code-box"><code class="language-python"># Membuat struktur pohon dengan dictionary
 tree = {
     "A": ["B", "C"],    # A memiliki dua anak: B dan C
@@ -153,7 +152,7 @@ print(tree["A"])  # Output: ['B', 'C']
 # Ini maksudnya ketika kita mengakses 'A', pilihan 'B' dan 'C' muncul.</code></pre>
                 </li>
                 <li>
-                    Tabular, Data disusun dalam format baris dan kolom seperti dalam tabel database atau DataFrame di Python.
+                    <span class="highlight">Tabular</span>, Data disusun dalam format baris dan kolom seperti dalam tabel database atau DataFrame di Python.
                     <pre class="code-box"><code class="language-python">import pandas as pd
 # Membuat data frame dengan 3 baris dan 3 kolom
 df = pd.DataFrame({
@@ -173,7 +172,7 @@ df = pd.DataFrame({
                     </div>
                 </li>
                 <li>
-                    Asosiatif, Data disusun dalam pasangan kunci-nilai (key-value pairs) untuk pencarian cepat. Contoh :
+                    <span class="highlight">Asosiatif</span>, Data disusun dalam pasangan kunci-nilai (key-value pairs) untuk pencarian cepat. Contoh :
                     <pre class="code-box"><code class="language-python">mahasiswa = {
     "NIM001": {"Nama": "Azmi", "Jurusan": "TI"},
     "NIM002": {"Nama": "Thariq", "Jurusan": "RPL"}
@@ -212,61 +211,89 @@ print(mahasiswa["NIM001"]["Nama"])  # Output: Azmi</code></pre>
                 </div>
             </div>
             <div class="hidden-content hidden">
-                <h3>Tipe Data Abstrak</h3>
+                <h3>Menentukan Struktur Data</h3>
                 <p>
-                    Tipe Data Abstrak (ADT) adalah konsep model untuk struktur data yang mendefinisikan operasi-operasi yang dapat dilakukan pada data tanpa menentukan bagaimana operasi tersebut diimplementasikan. 
-                    ADT memberikan kerangka struktur untuk apa yang data bisa lakukan dan apa yang data tidak bisa lakukan.
-                    <br><br>
-                    Karena ADT hanya berfokus pada logika operasi dan tidak bergantung pada cara kerja bahasa pemrograman, konsep ini dapat diterapkan di berbagai bahasa pemrograman. 
-                    Implementasi ADT dibuat secara langsung dalam kode oleh pengembang, karena bahasa pemrograman umumnya tidak menyediakan ADT secara langsung dan hanya menyediakan alat atau tipe data dasar untuk membangunnya.
+                    Untuk memahami bagaimana struktur data bekerja dan diterapkan, kita akan melakukan kegiatan praktik pada bahasa pemrograman Python.
+                    Karena pegunaan <span class="highlight">tipe data dalam bahasa pemrograman Python tidak perlu dideklarasikan/dituliskan</span> seperti di bahasa pemrograman lain (Seperti Java),
+                    maka kita dapat mengecek tipe data pada Python dengan menjalankan perintah berikut :
+                    <pre class="code-box"><code class="language-python">print(type(nama_variabel))</code></pre>
+                    Dengan contoh :
+                    <pre class="code-box"><code class="language-python">x = 10
+print(type(x))
+# Output : class 'int'</code></pre>
+                    <div class="accordion">
+                        <button class="accordion-header">
+                            Keterangan Tentang Kode
+                            <span class="accordion-icon">▶</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Perintah <span class="code-bit">print()</span> digunakan untuk menampilkan kode pada terminal.
+                                <br><br>
+                                Terminal Komputer atau Command-Line Interface (CLI) adalah tampilan berbasis text yang dapat digunakan untuk berinteraksi dengan komputer dengan mengetikan perintah dan langsung melihat hasilnya.
+                                Terminal pada Windows dapat beruma Command Prompt dan PowerShell. Ini juga termasuk bagian terminal di Visual Studio Code. 
+                                <br><br>
+                                Untuk mengeksekusi script bahasa pemrograman (seperti file berekstensi .py), kita memasukan perintah di terminal dengan menggunakan aplikasi interpreter yang akan menjalankan script dan memberikan hasil di terminal.
+                                Perintah print ini nantinya akan menampilkan teks di terminal.
+                                <br><br>
+                                Untuk <span class="code-bit">type(nama_variabel)</span>, perintah ini akan mengeluarkan hasil berupa teks yang akan menampilkan tipe data dari variabel yang dibuat.
+                            </p>
+                        </div>
+                    </div>            
                 </p>
                 <br>
-                <h3>Contoh Penerapan ADT</h3>
-                Berikut adalah salah satu contoh bagaimana ADT diguunakan pada suatu program :
-                <pre class="code-box"><code class="language-python">class Stack:
-def __init__(self):
-    self.stack = []  # Menggunakan list untuk menyimpan elemen stack
-
-def push(self, data):
-    # Menambahkan elemen ke dalam stack
-    self.stack.append(data)
-
-def pop(self):
-    # Menghapus dan mengembalikan elemen teratas dari stack
-    if not self.is_empty():
-        return self.stack.pop()
-    return "Stack kosong"
-
-def peek(self):
-    # Mengembalikan elemen teratas tanpa menghapusnya
-    if not self.is_empty():
-        return self.stack[-1]
-    return "Stack kosong"
-
-def is_empty(self):
-    # Mengecek apakah stack kosong
-    return len(self.stack) == 0
-
-def size(self):
-    # Mengembalikan jumlah elemen dalam stack
-    return len(self.stack)
-
-def display(self):
-    # Menampilkan elemen stack
-    print(self.stack[::-1])  # Menampilkan dalam urutan terbalik (elemen teratas dulu)
-
-# Contoh penggunaan
-s = Stack()
-s.push(10)
-s.push(20)
-s.push(30)
-s.display()  # Output: [30, 20, 10]
-
-print(s.pop())  # Output: 30
-print(s.peek())  # Output: 20
-print(s.is_empty())  # Output: False</code></pre>
+                <h3>Praktik Tipe Data</h3>
+                <p>
+                    Seperti yang dijelaskan sebelumnya, <span class="highlight">data mendefinisikan apa yang data boleh lakukan dan apa yang data tidak boleh lakukan</span>.
+                    Salah satu contohnya adalah pada kode berikut dimana kita akan mencoba melakukan operasi pada tipe data integer dan tipe data string :
+                    <pre class="code-box"><code class="language-python">x = 10
+y = "Ini String"
+print(x + y)
+# Output : TypeError: unsupported operand type(s) for +: 'int' and 'str'</code></pre>
+                </p>
+                <div class="accordion">
+                    <button class="accordion-header">
+                        Keterangan Tentang Kode
+                        <span class="accordion-icon">▶</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            Operasi tersebut menghasilkan error karena perbedaan tipe data. Pada operasi di kode tersebut, kita melakukan operasi matematika penambahan antara Integer dan String.
+                            <br><br>
+                            Tipe data String yang berupa text dan Integer yang berupa angka tidak dapat dioperasikan dengan penambahan secara matematis karena text dan angka tidak sama.
+                            <br><br>
+                            Operasi penambahan bisa dilakukan jika angka pada variabel <span class="code-bit">x</span> diubah terlebih dahulu menjadi string.
+                            Namun jika angka diubah jadi string, maka operasi penambahan antara string hanya akan menghasilkan teks yang digabung.
+                            Pada contoh tersebut jika angka pada x diubah jadi string maka nanti hasilnya adalah "Ini String10"
+                        </p>
+                    </div>
+                </div>
+            <p>
+                Untuk memahami operasi pada variabel yang tersedia di Python, teman-teman akan mempelajarinya di mata kuliah Algoritma dan Pemrograman.
+                Jika teman-teman penasaran dengan operasi apa saja yang dapat dilakukan, teman-teman dapat buka link berikut : <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_operators.asp">Operasi pada Python</a>
+            </p>
+            <hr>
+            <h2>Tugas</h2>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">1. Menentukan Tipe Data pada Variabel</span>
+                </div>
+                <p>Teman-teman akan mencoba menentukan tipe data dari variabel yang sudah diberikan.</p>
             </div>
-        </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">2. Mempraktikan Operasi pada variabel</span>
+                </div>
+                <p>Teman-teman akan menguji operasi-operasi pada variabel yang telah diberikan.</p>
+            </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">Detail Tugas</span>
+                </div>
+                <p>Instruksi tentang tugas dapat diliaht dengan klik tombol dibawah :</p>
+                <a target="_blank" rel="noopener"href="https://pastebin.com/raw/4J3KzAhG" class="practice-btn">Kerjakan</a>
+            </div>
+            </div>
 
         <div class="footer-content">
             <p>&copy; <span id="year"></span> Kazuki Fujimaru - RIT</p>
