@@ -1,62 +1,356 @@
-<p> 
-    Dalam pemrograman, struktur data merupakan cara untuk mengorganisir dan menyimpan data agar dapat diakses dan dimodifikasi secara efisien. 
-    Beberapa struktur data telah didefinisikan secara langsung oleh bahasa pemrograman, seperti integer, string, dan array. 
-    Namun, ada juga struktur data yang tidak tersedia secara langsung dan harus didefinisikan oleh programmer sendiri. 
-    Struktur data yang didefinisikan oleh programmer ini disebut sebagai Abstract Data Type (ADT). 
-    ADT adalah konsep yang mendefinisikan cara kerja dan perilaku suatu struktur data tanpa menentukan implementasi spesifiknya. 
-</p>
-<h3>Tipe Data Abstrak</h3>
-<p>
-    Tipe Data Abstrak (ADT) adalah konsep model untuk struktur data yang mendefinisikan operasi-operasi yang dapat dilakukan pada data tanpa menentukan bagaimana operasi tersebut diimplementasikan. 
-    ADT memberikan kerangka struktur untuk apa yang data bisa lakukan dan apa yang data tidak bisa lakukan.
-    <br><br>
-    Karena ADT hanya berfokus pada logika operasi dan tidak bergantung pada cara kerja bahasa pemrograman, konsep ini dapat diterapkan di berbagai bahasa pemrograman. 
-    Implementasi ADT dibuat secara langsung dalam kode oleh pengembang, karena bahasa pemrograman umumnya tidak menyediakan ADT secara langsung dan hanya menyediakan alat atau tipe data dasar untuk membangunnya.
-</p>
-<br>
-<h3>Contoh Penerapan ADT</h3>
-Berikut adalah salah satu contoh bagaimana ADT diguunakan pada suatu program :
-<pre class="code-box"><code class="language-python">class Stack:
-def __init__(self):
-self.stack = []  # Menggunakan list untuk menyimpan elemen stack
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan Tiga : Tipe Data Abstrak</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Tipe Data Abstrak</h1>
+        <hr>
+        <p> 
+            Dalam pemrograman, struktur data merupakan cara untuk mengorganisir dan menyimpan data agar dapat diakses dan dimodifikasi secara efisien. 
+            Beberapa struktur data telah didefinisikan secara langsung oleh bahasa pemrograman, seperti integer, string, dan array. 
+            Namun, ada juga struktur data yang tidak tersedia secara langsung dan harus didefinisikan oleh programmer sendiri. 
+            Struktur data yang didefinisikan oleh programmer ini disebut sebagai Abstract Data Type (ADT). 
+            ADT adalah konsep yang mendefinisikan cara kerja dan perilaku suatu struktur data tanpa menentukan implementasi spesifiknya. 
+        </p>
+        <br>
+        <h3>Tipe Data Abstrak</h3>
+        <p>
+            Tipe Data Abstrak (ADT) adalah konsep model untuk struktur data yang mendefinisikan operasi-operasi yang dapat dilakukan pada data tanpa menentukan bagaimana operasi tersebut diimplementasikan. 
+            ADT memberikan kerangka struktur untuk apa yang data bisa lakukan dan apa yang data tidak bisa lakukan.
+            <br><br>
 
-def push(self, data):
-# Menambahkan elemen ke dalam stack
-self.stack.append(data)
+            Karena ADT hanya berfokus pada logika operasi dan tidak bergantung pada cara kerja bahasa pemrograman, konsep ini dapat diterapkan di berbagai bahasa pemrograman. 
+            Implementasi ADT dibuat secara langsung dalam kode oleh pengembang, karena bahasa pemrograman umumnya tidak menyediakan ADT secara langsung dan hanya menyediakan alat atau tipe data dasar untuk membangunnya.
+        </p>
+        <br>
+        <h3>Penerapan ADT</h3>
+        <p>
+            Penerapan ADT dalam bahasa pemrograman dilakukan langsung di dalam kode dengan menggunakan fungsi.
+            Fungsi yang telah dibuat ini nantinya akan digunakan dalam kode untuk menjalankan ADT.
+        </p>
+        <br>
+        <h3>Fungsi (Function) dalam pemrograman</h3>
+        <p>
+            Fungsi dalam pemrograman adalah sekumpulan instruksi yang dapat dijalankan secara berulang-ulang. 
+            Fungsi dapat menerima argumen (data yang dikirim ke fungsi dan diterima oleh fungsi) dan mengembalkan nilai (mengirim kembali hasil dari proses yang dilakukan oleh fungsi). 
+            Fungsi dapat digunakan untuk memecah kode dan mengelompoklkan kode menjadi bagian-bagan yang lebih kecil dan lebih mudah dipahami.
+        </p>
+        <br>
+        <div class="quiz-container">
+            <h4>Jika disimpulkan, esensi Tipe Data Abstrak adalah ?</h4>
 
-def pop(self):
-# Menghapus dan mengembalikan elemen teratas dari stack
-if not self.is_empty():
-return self.stack.pop()
-return "Stack kosong"
+            <div class="quiz-options">
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-1"> Tipe data yang tidak dapat dipahami bahasa pemrograman.
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-1"> Aturan pada data yang dibuat oleh fungsi.
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-1"> Tipe data yang tidak memiliki bentuk khusus.
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-1"> Aturan pada data yang sudah ada dan tinggal dirancang.
+                </label>
+                <label class="quiz-option" data-correct="true">
+                    <input type="radio" name="quiz-1"> Tipe data berbentuk konsep yang bisa diterapkan dengan berbagai cara.
+                </label>
+            </div>
 
-def peek(self):
-# Mengembalikan elemen teratas tanpa menghapusnya
-if not self.is_empty():
-return self.stack[-1]
-return "Stack kosong"
+            <button class="submit-btn">Submit</button>
 
-def is_empty(self):
-# Mengecek apakah stack kosong
-return len(self.stack) == 0
+            <div class="quiz-feedback"></div>
 
-def size(self):
-# Mengembalikan jumlah elemen dalam stack
-return len(self.stack)
+            <div class="quiz-explanation hidden">
+                <p>
+                    Secara umum, konsep ADT diterapkan dengan mendefinisikan operasi yang bisa dilakukan pada data. Dalam kode, ADT umumnya dibuat menggunakan sekumpulan fungsi.
+                    <br><br>
+                    Meskipun sering diimplementasikan dengan fungsi, inti dari ADT adalah pemisahan antara spesifikasi dan implementasi.
+                    <br><br>
+                    Spesifikasi yang dimaksud adalah menentukan apa yang bisa dilakukan, seperti menambah atau menghapus data, tanpa menjelaskan cara melakukannya.
+                    <br><br>
+                    Sementara itu, implementasi adalah bagaimana spesifikasi tersebut dijalankan dalam kode, termasuk bagaimana data disimpan dan diproses.
+                </p>
+            </div>
+        </div>
+        
+        <div class="hidden-content hidden">
+            <h3>Jenis-jenis ADT</h3>
+            Berikut adalah jenis-jenis Tipe Data Abstrak yang dijelaskan secara sederhana :
+            <br><br>
+            <h4>Array</h4>
+            <p>
+                Array adalah kumpulan data dengan ukuran tetap yang bisa diakses dengan indeks.
+                Array bisa diibaratkan seperti rak buku dengan nomor urut. 
+                Setiap buku (data) bisa diambil dengan melihat nomornya (indeks).
+                <div class="code-box">
+                    Contoh penerapannya adalah : Daftar nilai ujian siswa <span class ="code-bit">[80, 90, 75, 88, 95].</span>
+                    Disini Siswa berukuran tetap tanpa penambahan atau pengurangan secara langsung.
+                </div>
+                Operasi utama :
+                <ul>
+                    <li>Menyimpan data di indeks tertentu <span class="code-bit">set(index, value)</span></li>
+                    <li>Mengambil data dari indeks <span class="code-bit">get(index)</span></li>
+                    <li>Mengetahui ukuran array <span class="code-bit">size()</span></li>
+                </ul>
+            </p>
+            <br>
+            <h4>List (Daftar) </h4>
+            <p>
+                List adalah kumpulan data yang bisa bertambah atau berkurang ukurannya (secara dinamis).
+                List bisa diibaratkan seperti daftar belanja yang bisa diisi atau dihapus kapan saja.
+                <div class="code-box">
+                    Contoh penerapannya adalah <span class ="code-bit">["Apel", "Pisang", "Jeruk"]</span>.
+                    Disini data belanjaan bisa ditambah atau dihapus dengan mudah.
+                </div>
+                Operasi utama :
+                <ul>
+                    <li>Menambahkan elemen <span class="code-bit">append()</span></li>
+                    <li>Menghapus elemen <span class="code-bit">remove()</span></li>
+                    <li>Mencari elemen <span class="code-bit">search()</span></li>
+                </ul>
+            </p>
+            <br>
+            <h4>Stack (Tumpukan)</h4>
+            <p>
+                Struktur data dengan konsep "Last In, First Out" (LIFO), yaitu dimana data yang terakhir masuk adalah data yang pertama keluar.
+                Stack dapat diibaratkan seperti tumpukan piring di restoran. 
+                Piring terakhir yang ditumpuk harus diambil dulu sebelum mengambil yang lain.
+                <div class="code-box">
+                Contoh penerapannya adalah fitur Undo/Redo.
+                Fitur Undo/Redo menggunakan aksi terakhir yang kita gunakan (yang berarti data yang terakhir masuk).
+                </div>
+                Operasi utama :
+                <ul>
+                    <li>Push, yaitu Menambahkan data ke tumpukan</li>
+                    <li>Pop, yaitu Mengambil data dari tumpukan</li>
+                    <li>Peek, yaitu Melihat data teratas tanpa mengambilnya</li>
+                </ul>
+            </p>
+            <br>
+            <h4>Queue (Antrian)</h4>
+            <p>
+                Queue, adalah struktur data dengan konsep "First In, First Out" (FIFO), yaitu dimana data yang pertama masuk adalah data yang pertama keluar.
+                Queue dapat diibaratkan seperti antrian di kasir. Orang pertama yang datang akan dilayani dulu.
+                <div class="code-box">
+                Contoh penerapannya adalah antrian pencetakan dokumen pada printer.
+                Dokumen yang pertama kali dicetak adalah dokumen yang pertama kali tugaskan untuk print.
+                </div>
+                Operasi utama :
+                <ul>
+                    <li>Enqueue, yaitu menambahkan data ke antrian</li>
+                    <li>Dequeue, yaitu mengambil data dari antrian</li>
+                </ul>
+            </p>
+            <br>
+            <h4>Linked List (Daftar Berantai)</h4>
+            <p>
+                Linked List adalah struktur data yang terdiri dari elemen-elemen yang saling terhubung.
+                Linked List dapat diibaratkan seperti rantai sepeda, di mana setiap mata rantai terhubung ke yang berikutnya.
+                <div class="code-box">
+                    Contoh penerapannya adalah navigasi lagu dalam playlist musik.
+                    Playlist musik dapat berubah urutan secara langsung ketika dimainkan walaupun sudah disusun sebelumnya.
+                    Linked list ini khususnya tercermin di fitur Shuffle/Lagu Acak dimana urutan lagu tetap sama namun urutan putar berbeda. 
+                </div>
+                Operasi utama :
+                <ul>
+                    <li>Menambahkan elemen <span class="code-bit">insert()</span></li>
+                    <li>Menghapus elemen <span class="code-bit">delete()</span></li>
+                    <li>Menelusuri elemen <span class="code-bit">traverse()</span></li>
+                </ul>
+            </p>
+            <br>
+            <h4>Graph (Graf)</h4>
+            <p>
+                Graf adalah struktur data yang berisi kumpulan titik (node) yang saling terhubung.
+                Graf dapat diibaratkan seperti peta jalan, di mana kota-kota adalah node dan jalan adalah hubungan antar node.
+                <div class="code-box">
+                    Contoh penerapannya adalah jaringan sosial pada media sosial.
+                    Media sosial menggunakan algoritma rekomendasi konten dan teman berdasarkan hubungan pengguna.
+                </div>
+                <br>
+                Operasi utama :
+                <ul>
+                    <li>Menambah simpul <span class="code-bit">addNode()</span></li>
+                    <li>Menambah hubungan <span class="code-bit">addEdge()</span></li>
+                    <li>Mencari jalur <span class="code-bit">findPath()</span></li>
+                </ul>
+            </p>
+            <br>
+            <h4>Tree (Pohon)</h4>
+            <p>
+                Pohon adalah struktur data hierarkis di mana setiap elemen memiliki hubungan "anak" dan "induk".
+                Pohon dapat diibaratkan seperti pohon keluarga, dimana ada orang tua dan anak-anaknya. 
+                Selain itu bisa diibaratkan juga dengan struktur organisasi dan organigram, dimana ada ketua(induk) dan pengurus-pengurus lainnya (anak).
+                <div class="code-box">
+                Contoh penerapannya adalah struktur folder di komputer.
+                Pada struktur folder di komputer, satu folder bisa memiliki turunan yang merupakan isi dari folder. 
+                Isi folder ini dapat berupa file (anak) atau berupa folder lain (induk lain)
+                </div>
+                Operasi utama :
+                <ul>
+                    <li>Menambahkan node <span class="code-bit">insert()</span></li>
+                    <li>Mencari node <span class="code-bit">search()</span></li>
+                    <li>Menghapus node <span class="code-bit">delete()</span></li>
+                </ul>
+            </p>
+            <br>
+            <h3>Contoh Implementasi ADT</h3>
+            <p>
+                Implementasi ADT dilakukan dengan menerapkan aturan-aturan ADT pada program yang kita miliki. 
+                Disini kita akan menerapkan konsep Array pada bahasa pemrograman Python.
+                <br>
+                Sebelum lanjut, mari kita pahami dulu bahwa sifat-sifat array adalah :
+                </p>
+                <ul>
+                    <li>Ukurannya tetap.</li>
+                    <li>Elemen disimpan secara berurutan.</li>
+                    <li>Elemen dapat diakses dengan index.</li>
+                    <li>Tipe Data Homogen (semua tipe data pada Array sama).</li>
+                </ul>
+            <p>Dengan sifat-sifat tersebut, maka kita dapat membuat array dengan kode berikut :</p>
+            <pre class="code-box"><code class="language-python">class ArrayADT:
+def __init__(self, ukuran, tipe_data):
+    # Membuat array dengan ukuran tetap dan tipe data tertentu.
+    self.isi = [None] * ukuran  # Array dengan ukuran tetap
+    self.panjang = ukuran
+    self.tipe_data = tipe_data  # Menyimpan tipe data yang diperbolehkan
+
+def set(self, index, value):
+    # Menetapkan nilai pada indeks tertentu, dengan validasi tipe data.
+    if 0 <= index < self.panjang:
+        if isinstance(value, self.tipe_data):
+            self.isi[index] = value
+            print(f"Set isi[{index}] = {value}")
+        else:
+            print(f"Error: Nilai harus bertipe {self.tipe_data.__name__}!")
+    else:
+        print("Error: Indeks di luar batas!")
+
+def get(self, index):
+    # Mengambil nilai dari indeks tertentu, jika indeks valid.
+    if 0 <= index < self.panjang:
+        return self.isi[index]
+    else:
+        print("Error: Indeks di luar batas!")
+        return None
+
+def ukuran(self):
+    # Mengembalikan ukuran array.
+    return self.panjang
 
 def display(self):
-# Menampilkan elemen stack
-print(self.stack[::-1])  # Menampilkan dalam urutan terbalik (elemen teratas dulu)
+    """Menampilkan isi array."""
+    print(self.isi)
 
 # Contoh penggunaan
-s = Stack()
-s.push(10)
-s.push(20)
-s.push(30)
-s.display()  # Output: [30, 20, 10]
+# Membuat array integer dengan ukuran 5
+arr = ArrayADT(5, int)  
 
-print(s.pop())  # Output: 30
-print(s.peek())  # Output: 20
-print(s.is_empty())  # Output: False</code></pre>
-</div>
-</div>
+# Berhasil karena sesuai tipe data
+arr.set(0, 10)
+arr.set(3, 20)  
+arr.display()
+
+# Gagal karena tidak sesuai tipe data
+arr.set(3, "Ini String")  
+
+# Gagal karena indeks di luar batas
+arr.set(5, 50)  
+
+# Menampilkan satu data
+print("Nilai di indeks 3:", arr.get(3))
+
+# Menampilkan panjang array
+print("Ukuran array:", arr.ukuran())</code></pre>
+            <div class="accordion">
+                <button class="accordion-header">
+                    Keterangan Lebih Lanjut
+                    <span class="accordion-icon">▶</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        Kode ini adalah implementasi sederhana dari konsep Array sebagai Abstract Data Type (ADT) dalam Python. 
+                        Array adalah sekumpulan data yang disusun secara berurutan dan diakses menggunakan indeks. 
+                        Dalam kode ini, dibuat sebuah kelas bernama <span class="code-bit">ArrayADT</span> yang berfungsi sebagai wadah untuk menyimpan data dengan aturan tertentu. 
+                        Saat kelas array dibuat, kita sudah menuliskan kode untuk menentukan ukuran, dan tipe data dari array.
+                        <br><br>
+                        Setiap elemen dalam array disimpan dalam daftar (list) dengan ukuran tetap, di mana semua slot awalnya berisi None sebagai tanda bahwa belum ada data yang dimasukkan. 
+                        Untuk memasukkan nilai ke dalam array, kita membuat fungsi <span class="code-bit">set()</span> yang memastikan bahwa nilai yang diberikan sesuai dengan tipe data yang telah ditentukan 
+                        dan indeks yang diberikan tidak diluar batas.
+                        Jika pengecekan berhasil, data akan dimasukkan ke Array dan jika pengecekan gagal, pesan error akan muncul.
+                        <br><br>
+                        Untuk mengambil data dari array, tersedia fungsi <span class="code-bit">get()</span>, yang mengembalikan nilai dari indeks tertentu jika masih didalam batas ukuran. 
+                        Selain itu, ada juga fungsi <span class="code-bit">ukuran()</span> yang mengembalikan nilai jumlah elemen maksimum yang dapat disimpan dalam array. 
+                        Terakhir, fungsi <span class="code-bit">display()</span> digunakan untuk menampilkan seluruh isi array saat ini.
+                        <br><br>
+                        Kode ini menunjukkan bagaimana ADT bekerja dalam pemrograman, di mana aturan-aturan tertentu diterapkan untuk mengelola data dengan lebih rapi dan terkendali.
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <h2>Tugas</h2>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">(Opsional) Mencoba kode untuk ADT Array</span>
+                </div>
+                <p>Uji coba kode untuk array di atas dan buktikan apakah sifat-sifat array dapat dijalankan</p>
+            </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">1. Sifat-sifat Queue dan Stack</span>
+                </div>
+                <p>Buka link berikut lalu pelajari tentang sifat-sifat Queue dan Stack:</p>
+                <a target="_blank" rel="noopener"href="#" class="practice-btn">Kerjakan</a>
+            </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">2. Operasi pada list di Python</span>
+                </div>
+                <p>Buka link berikut lalu pelajari tentang Operasi-operasi yang dapat dilakukan pada list:</p>
+                <a target="_blank" rel="noopener"href="#" class="practice-btn">Kerjakan</a>
+            </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">3. Membuat ADT Queue</span>
+                </div>
+                <p>Buka kode berikut lalu lengkapi fungsi agar dapat berjalan sesuai dengan prinsip Queue:</p>
+                <a target="_blank" rel="noopener"href="#" class="practice-btn">Kerjakan</a>
+            </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">4. Membuat ADT Stack</span>
+                </div>
+                <p>Buka kode berikut lalu lengkapi fungsi agar dapat berjalan sesuai dengan prinsip Stack:</p>
+                <a target="_blank" rel="noopener"href="#" class="practice-btn">Kerjakan</a>
+            </div>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">Pengumpulan Tugas</span>
+                </div>
+                <p>Kumpulkan tugas dengan mengirim file yang sudah berjalan di link berikut :</p>
+                <a target="_blank" rel="noopener"href="https://docs.google.com/forms/d/e/1FAIpQLSd5EFwfjqZixiDWcLwFQEWIM8ZyKHM27CYPpmjF8lxGzG2zmA/viewform?usp=dialog" class="practice-btn">Kerjakan</a>
+            </div>
+        </div>
+        
+
+
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Kazuki Fujimaru - RIT</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>

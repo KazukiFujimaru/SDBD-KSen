@@ -101,7 +101,7 @@ ul {
 }
 
 .code-bit {
-    background-color: grey;
+    background-color: rgb(0, 85, 96);
     font-family: 'Fira Code', monospace;
     color: #d4d4d4;
     border-radius: 5px;
