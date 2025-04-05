@@ -13,8 +13,62 @@
     <!-- Language Support for Python & SQL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link gor Icoon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body style>
+    <!-- Desktop Navbar -->
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-list"></i></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+            <div class="mobile-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Navbar -->
+    <div class="mobile-navbar">
+        <div class="mobile-nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-list"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <div class="sidebar-close" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-items">
+            <div class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-list"></i>
+                <span>List</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+            <div class="sidebar-item fullscreen-toggle">
+                <i class="fas fa-expand"></i>
+                <span>Fullscreen</span>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="overlay"></div>
 
     <div class="container">
         <h1>This is title</h1>
@@ -121,6 +175,9 @@
                 <p>Now you can place and draw one shape, but how about drawing several? In this practice, you'll place three squares side by side to really get the hang of properties.</p>
                 <a href="#" class="practice-btn">Practice</a>
             </div>          
+        </div>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Kazuki Fujimaru - RIT</p>
         </div>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>

@@ -1,0 +1,349 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            min-height: 100vh;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a2e;
+            color: white;
+            height: 40px;
+            padding: 0 15px;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-icon {
+            color: white;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .nav-icon:hover {
+            color: #7f7fd5;
+        }
+        
+        /* Content for demo */
+        .content {
+            padding: 20px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        /* Mobile bottom navbar */
+        .mobile-navbar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a1a2e;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-nav-icons {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        /* Mobile sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: #1a1a2e;
+            z-index: 1001;
+            transition: right 0.3s ease;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            display: none;
+        }
+        
+        .sidebar-header {
+            padding: 20px 15px;
+            border-bottom: 1px solid #2d2d44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sidebar-close {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .sidebar-items {
+            padding: 20px 0;
+        }
+        
+        .sidebar-item {
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .sidebar-item:hover {
+            background-color: #2d2d44;
+        }
+        
+        .sidebar-item i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        /* Media query for mobile */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 10px;
+            }
+            
+            .nav-icon {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .mobile-navbar {
+                display: block;
+            }
+            
+            .sidebar {
+                display: block;
+            }
+            
+            body {
+                padding-bottom: 50px; /* Space for bottom navbar */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Navbar -->
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-list"></i></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+            <div class="mobile-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Bottom Navbar -->
+    <div class="mobile-navbar">
+        <div class="mobile-nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-list"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+        </div>
+    </div>
+    
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <div class="sidebar-close" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-items">
+            <div class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-list"></i>
+                <span>List</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+            <div class="sidebar-item fullscreen-toggle">
+                <i class="fas fa-expand"></i>
+                <span>Fullscreen</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar-overlay" id="overlay"></div>
+    
+    <!-- Content for demo -->
+    <div class="content">
+        <div class="section">
+            <h2>Section 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat sapien at eros tincidunt, in facilisis nisl efficitur.</p>
+        </div>
+        
+        <!-- Add more sections to demonstrate scrolling -->
+        <div class="section">
+            <h2>Section 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat sapien at eros tincidunt, in facilisis nisl efficitur.</p>
+        </div>
+        
+        <!-- Repeat sections to create enough content for scrolling -->
+        <div class="section">
+            <h2>Section 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat sapien at eros tincidunt, in facilisis nisl efficitur.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Section 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat sapien at eros tincidunt, in facilisis nisl efficitur.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Section 5</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat sapien at eros tincidunt, in facilisis nisl efficitur.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle fullscreen functionality
+        const fullscreenToggles = document.querySelectorAll('.fullscreen-toggle');
+        
+        fullscreenToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    if (document.documentElement.requestFullscreen) {
+                        document.documentElement.requestFullscreen();
+                    } else if (document.documentElement.mozRequestFullScreen) {
+                        document.documentElement.mozRequestFullScreen();
+                    } else if (document.documentElement.webkitRequestFullscreen) {
+                        document.documentElement.webkitRequestFullscreen();
+                    } else if (document.documentElement.msRequestFullscreen) {
+                        document.documentElement.msRequestFullscreen();
+                    }
+                    
+                    // Change icon to compress
+                    fullscreenToggles.forEach(t => {
+                        const icon = t.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-expand');
+                            icon.classList.add('fa-compress');
+                        }
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    
+                    // Change icon back to expand
+                    fullscreenToggles.forEach(t => {
+                        const icon = t.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-compress');
+                            icon.classList.add('fa-expand');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Mobile sidebar functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const overlay = document.getElementById('overlay');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.style.right = '0';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+        });
+        
+        function hideSidebar() {
+            sidebar.style.right = '-250px';
+            overlay.style.display = 'none';
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+        
+        closeSidebar.addEventListener('click', hideSidebar);
+        overlay.addEventListener('click', hideSidebar);
+        
+        // Close sidebar when clicking on a menu item (for demo purposes)
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 600) {
+                    hideSidebar();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
