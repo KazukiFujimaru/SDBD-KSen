@@ -29,3 +29,7 @@ def configure_routes(app):
     @app.route("/test2")
     def test2():
         return render_template("testpg2.html")
+    
+    @app.route("/materi")
+    def materipage():
+        return render_template("materi.html")
