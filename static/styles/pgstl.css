@@ -364,7 +364,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a1a2e;
+    background-color: #1e1e2c;
     color: white;
     height: 30px;
     padding: 0 15px;
@@ -447,10 +447,13 @@ h3 {
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit; /* keeps the icon and text color unchanged */
 }
 
 .sidebar-item:hover {
     background-color: #2d2d44;
+    text-decoration: none;
 }
 
 .sidebar-item i {

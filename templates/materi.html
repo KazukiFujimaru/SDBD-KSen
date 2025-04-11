@@ -3,229 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Index - Learn GDScript From Zero</title>
+    <title>Daftar Materi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/mtstl.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- Link gor Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1 class="main-title">Course Index - <span>Learn GDScript From Zero</span></h1>
-    </header>
+<body style>
+        <!-- Desktop Navbar -->
+        <div class="navbar">
+            <div class="nav-left">
+                <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+                <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+                <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+                <div class="mobile-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
     
+        <!-- Mobile Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <div class="sidebar-close" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-items">
+                <a href="/" class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/materi" class="sidebar-item">
+                    <i class="fas fa-list"></i>
+                    <span>List</span>
+                </a>
+                <a href="/#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div class="sidebar-item fullscreen-toggle">
+                    <i class="fas fa-expand"></i>
+                    <span>Fullscreen</span>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay" id="overlay"></div>
+    
+    <header>
+        <h1 class="main-title">Daftar Materi - <span>Praktikum SDBD</span></h1>
+    </header>
     <div class="container">
         <div class="lessons-panel">
             <ul class="lesson-list">
-                <li class="lesson-item active" data-lesson="lesson1">
-                    <span class="lesson-number">Lesson 1</span>
-                    <span class="lesson-name">What Code is Like</span>
+                <li class="lesson-item active" data-lesson="lesson1" data-link="/materi/p1">
+                    <span class="lesson-number">Materi 1</span>
+                    <span class="lesson-name">Pengantar SDBD</span>
                 </li>
-                <li class="lesson-item" data-lesson="lesson2">
-                    <span class="lesson-number">Lesson 2</span>
-                    <span class="lesson-name">Your First Error</span>
+                <li class="lesson-item" data-lesson="lesson2" data-link="/materi/p2">
+                    <span class="lesson-number">Materi 2</span>
+                    <span class="lesson-name">Tipe Data</span>
                 </li>
-                <li class="lesson-item" data-lesson="lesson3">
-                    <span class="lesson-number">Lesson 3</span>
-                    <span class="lesson-name">We Stand on the Shoulders of Giants</span>
+                <li class="lesson-item" data-lesson="lesson3" data-link="/materi/p3">
+                    <span class="lesson-number">Materi 3</span>
+                    <span class="lesson-name">Tipe Data Abstrak</span>
                 </li>
-                <li class="lesson-item" data-lesson="lesson4">
-                    <span class="lesson-number">Lesson 4</span>
-                    <span class="lesson-name">Drawing a Rectangle</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson5">
-                    <span class="lesson-number">Lesson 5</span>
-                    <span class="lesson-name">Coding Your First Function</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson6">
-                    <span class="lesson-number">Lesson 6</span>
-                    <span class="lesson-name">Your First Function Parameter</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson7">
-                    <span class="lesson-number">Lesson 7</span>
-                    <span class="lesson-name">Introduction to Member Variable</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson8">
-                    <span class="lesson-number">Lesson 8</span>
-                    <span class="lesson-name">Defining Your Own Variables</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson9">
-                    <span class="lesson-number">Lesson 9</span>
-                    <span class="lesson-name">Adding and Subtracting</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson10">
-                    <span class="lesson-number">Lesson 10</span>
-                    <span class="lesson-name">The Game Loop</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson11">
-                    <span class="lesson-number">Lesson 11</span>
-                    <span class="lesson-name">Time Delta</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson12">
-                    <span class="lesson-number">Lesson 12</span>
-                    <span class="lesson-name">Using Variables to Make Code Easier</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson13">
-                    <span class="lesson-number">Lesson 13</span>
-                    <span class="lesson-name">Conditions</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson14">
-                    <span class="lesson-number">Lesson 14</span>
-                    <span class="lesson-name">Multiplying</span>
-                </li>
-                <li class="lesson-item" data-lesson="lesson15">
-                    <span class="lesson-number">Lesson 15</span>
-                    <span class="lesson-name">If Statements</span>
+                <li class="lesson-item" data-lesson="lesson4" data-link="#">
+                    <span class="lesson-number">Materi Selanjutnya</span>
+                    <span class="lesson-name">Coming Soon</span>
                 </li>
             </ul>
         </div>
         
         <div class="lesson-detail-panel">
-            <div id="lesson-content">
-                <h2 class="detail-title">What Code is Like</h2>
+            <div class="lesson-content-container">
+                <!-- Lesson 1 content (default visible) -->
+                <div id="content-lesson1" class="lesson-content active">
+                    <h2 class="detail-title">Pengantar SDBD</h2>
+                    
+                    <div class="lesson-info">
+                        <div class="info-item">
+                            <span class="info-label">Isi Bahasan :</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Pengertian seputar Struktur Data</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Pengertin seputar Basis Data</span>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="lesson-info">
-                    <div class="info-item">
-                        <span class="info-label">Lesson read</span>
-                        <span class="info-value">3%</span>
+                <!-- Lesson 2 content -->
+                <div id="content-lesson2" class="lesson-content">
+                    <h2 class="detail-title">Tipe Data</h2>
+                    
+                    <div class="lesson-info">
+                        <div class="info-item">
+                            <span class="info-label">Isi Bahasan :</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Pengertian Tipe Data</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tipe Data Primitif beserta contohnya</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tipe Data Komposit beserta contohnya</span>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">Quizzes completed</span>
-                        <span class="info-value">0 / 2</span>
+                </div>
+                
+                <!-- Lesson 3 content -->
+                <div id="content-lesson3" class="lesson-content">
+                    <h2 class="detail-title">Tipe Data Abstrak</h2>
+                    
+                    <div class="lesson-info">
+                        <div class="info-item">
+                            <span class="info-label">Isi Bahasan :</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Pengertian Tipe Data Abstrak</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Jenis-jenis Tipe Data Abstrak</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Contoh penerapan Tipe Data Abstrak</span>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">Practices completed</span>
-                        <span class="info-value">0 / 1</span>
+                </div>
+                
+                <!-- Lesson 4 content -->
+                <div id="content-lesson4" class="lesson-content">
+                    <h2 class="detail-title">Coming Soon</h2>
+                    
+                    <div class="lesson-info">
+                        <div class="info-item">
+                            <span class="info-label">Isi Bahasan :</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Nantikan update materi selanjutnya !</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="action-buttons">
-                <button class="continue-btn">Continue Lesson</button>
+                <a id="continue-btn" href="/materi/p1" class="continue-btn">Pilih Materi</a>
             </div>
         </div>
     </div>
+    <div class="footer-content">
+        <p>&copy; <span id="year"></span> Kazuki Fujimaru - RIT</p>
+    </div>
 
-    <script>
-        // Lesson content data
-        const lessonData = {
-            lesson1: {
-                title: "What Code is Like",
-                lessonRead: "3%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 1"
-            },
-            lesson2: {
-                title: "Your First Error",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 1",
-                practicesCompleted: "0 / 2"
-            },
-            lesson3: {
-                title: "We Stand on the Shoulders of Giants",
-                lessonRead: "0%", 
-                quizzesCompleted: "0 / 3",
-                practicesCompleted: "0 / 1"
-            },
-            lesson4: {
-                title: "Drawing a Rectangle",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 3"
-            },
-            lesson5: {
-                title: "Coding Your First Function",
-                lessonRead: "90%",
-                quizzesCompleted: "1 / 2",
-                practicesCompleted: "2 / 3"
-            },
-            lesson6: {
-                title: "Your First Function Parameter",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 1", 
-                practicesCompleted: "0 / 2"
-            },
-            lesson7: {
-                title: "Introduction to Member Variable",
-                lessonRead: "8%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 1"
-            },
-            lesson8: {
-                title: "Defining Your Own Variables",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 2"
-            },
-            lesson9: {
-                title: "Adding and Subtracting",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 3",
-                practicesCompleted: "0 / 2"
-            },
-            lesson10: {
-                title: "The Game Loop",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 1",
-                practicesCompleted: "0 / 3"
-            },
-            lesson11: {
-                title: "Time Delta",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 1"
-            },
-            lesson12: {
-                title: "Using Variables to Make Code Easier",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 2"
-            },
-            lesson13: {
-                title: "Conditions",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 1"
-            },
-            lesson14: {
-                title: "Multiplying",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 1",
-                practicesCompleted: "0 / 2"
-            },
-            lesson15: {
-                title: "If Statements",
-                lessonRead: "0%",
-                quizzesCompleted: "0 / 2",
-                practicesCompleted: "0 / 3"
-            }
-        };
-
-        // Handle lesson selection
-        const lessonItems = document.querySelectorAll('.lesson-item');
-        
-        lessonItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // Remove active class from all lessons
-                lessonItems.forEach(li => li.classList.remove('active'));
-                
-                // Add active class to clicked lesson
-                this.classList.add('active');
-                
-                // Update the lesson content
-                const lessonId = this.getAttribute('data-lesson');
-                updateLessonContent(lessonId);
-            });
-        });
-        
-        function updateLessonContent(lessonId) {
-            const data = lessonData[lessonId];
-            const detailTitle = document.querySelector('.detail-title');
-            const infoValues = document.querySelectorAll('.info-value');
-            
-            detailTitle.textContent = data.title;
-            infoValues[0].textContent = data.lessonRead;
-            infoValues[1].textContent = data.quizzesCompleted;
-            infoValues[2].textContent = data.practicesCompleted;
-        }
-    </script>
+    <script src="{{ url_for('static', filename='scripts/scriptmt.js') }}"></script>
 </body>
 </html>
