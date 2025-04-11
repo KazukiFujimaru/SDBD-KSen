@@ -13,8 +13,54 @@
     <!-- Language Support for Python & SQL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link for Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Desktop Navbar -->
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+            <div class="mobile-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <div class="sidebar-close" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-items">
+            <a href="/" class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="/materi" class="sidebar-item">
+                <i class="fas fa-list"></i>
+                <span>List</span>
+            </a>
+            <a href="/#" class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-item fullscreen-toggle">
+                <i class="fas fa-expand"></i>
+                <span>Fullscreen</span>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="overlay"></div>
+
     <div class="container">
         <h1>Pengantar Struktur Data dan Basis Data</h1>
         <hr>
