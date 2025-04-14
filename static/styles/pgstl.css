@@ -503,3 +503,15 @@ h3 {
     }
     
 }
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 50vh;
+}
+
+@media (max-width: 600px) {
+    img {
+        max-width: 30vh;
+    }
+}

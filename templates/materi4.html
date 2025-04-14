@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Complexity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python & SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link for Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style>
+    <!-- Desktop Navbar -->
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+            <div class="mobile-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <div class="sidebar-close" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-items">
+            <a href="/" class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="/materi" class="sidebar-item">
+                <i class="fas fa-list"></i>
+                <span>List</span>
+            </a>
+            <a href="/#" class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-item fullscreen-toggle">
+                <i class="fas fa-expand"></i>
+                <span>Fullscreen</span>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <div class="container">
+        <h1>Time Complexity</h1>
+        <hr>
+        <p>
+            Struktur Data dapat mempengaruhi waktu pemrosesan dari data yang ada didalamnya.
+            Sehingga diperlukan struktur data yang berbeda dalam penggunaan yang berbeda.
+        </p>
+        <br>
+        <h3>Pengertian Time Complexity</h3>
+        <p><b>Time complexity (kompleksitas waktu)</b> adalah ukuran yang digunakan untuk menghitung seberapa efisien sebuah algoritma dalam menyelesaikan tugasnya berdasarkan jumlah langkah yang dibutuhkan relatif terhadap ukuran input.</p>
+        <p>Dengan kata lain, time complexity menunjukkan <span class="highlight">berapa banyak operasi</span> yang dilakukan oleh algoritma saat ukuran data meningkat. Ini penting karena algoritma yang terlihat sederhana bisa menjadi sangat lambat ketika menangani data dalam jumlah besar.</p>
+        <p>Time Complexity sendiri akhirnya dapat menjadi patokan untuk melihat seberapa cepat suatu algoritma dapat bekerja.</p>
+        <p>Contoh:</p>
+        <ul>
+            <li>Jika sebuah algoritma butuh 10 langkah untuk memproses 10 data, dan 100 langkah untuk 100 data, maka kompleksitasnya bisa jadi linear.</li>
+        </ul>
+        <br>
+        
+        <h3>Hubungan antara Struktur Data dan Time Complexity</h3>
+        <p>Setiap struktur data memiliki karakteristik yang berbeda dalam hal cara menyimpan dan mengakses data. Hal ini mempengaruhi kecepatan dalam melakukan operasi seperti pencarian, penyisipan, dan penghapusan.</p>
+        <p>Sebagai contoh:</p>
+        <ul>
+            <li>Mencari data dalam list biasa (array) membutuhkan pengecekan satu per satu (linear search), dengan time complexity <span class="code-bit">O(n)</span>.</li>
+            <li>Sedangkan mencari di dictionary (struktur data hash di Python) bisa dilakukan secara langsung, dengan time complexity <span class="code-bit">O(1)</span>.</li>
+        </ul>
+        <p>Jadi, <span class="highlight">pemilihan struktur data yang tepat dapat mempercepat proses komputasi</span> dalam program kita.</p>
+        
+        <div class="accordion">
+            <button class="accordion-header">
+                Apa itu struktur data hash?
+                <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+                <p>Struktur data hash adalah struktur data yang menggunakan fungsi hash untuk memetakan kunci ke nilai tertentu. Fungsi hash mengubah kunci menjadi indeks dalam sebuah array, sehingga memungkinkan akses data secara langsung (constant time) tanpa perlu melakukan pencarian sekuensial. Di Python, dictionary dan set adalah contoh implementasi dari struktur data hash.</p>
+            </div>
+        </div>
+        <br>
+        
+        <h3>Dimana Time Complexity Berada?</h3>
+        <p>Time complexity muncul dalam banyak proses dalam program, khususnya pada:</p>
+        <ul>
+            <li><span class="highlight">Akses data</span> (mengambil nilai dari suatu struktur data)</li>
+            <li><span class="highlight">Pencarian data</span> (mencari apakah suatu nilai ada dalam struktur data)</li>
+            <li><span class="highlight">Penambahan dan penghapusan data</span></li>
+        </ul>
+        <p>
+            Time complexity berdampak langsung pada <span class="highlight">waktu proses aplikasi</span>. Jika aplikasi harus memproses data besar dan algoritmanya tidak efisien, maka:
+        </p>
+        <ul>
+            <li>Proses akan lebih lambat</li>
+            <li>Pengguna akan merasa aplikasi tidak responsif</li>
+        </ul>
+        <p>
+            Maka dari itu, memahami time complexity sangat penting dalam membuat program yang efisien.
+        </p>
+        <br>
+        
+        <h3>4.Big-O Notation</h3>
+        <p>Big-O notation adalah cara untuk menyatakan time complexity suatu algoritma secara matematis dan umum. Notasi ini menunjukkan <span class="highlight">pertumbuhan jumlah operasi</span> relatif terhadap jumlah input.</p>
+        
+        <div class="code-box">
+            <code><img src="{{ url_for('static', filename='images/big-o-not.png') }}" alt="Big-O Notation Graph O(1), O(log n), O(n), and O(n²)"></code>
+        </div>
+        
+        <p>Beberapa contoh Big-O notation:</p>
+        <ul>
+            <li><span class="code-bit">O(1)</span> : Konstanta. Waktu tetap tidak tergantung jumlah data.
+                <ul>
+                    <li>Contoh: Mengakses elemen ke-i dari sebuah list.</li>
+                </ul>
+            </li>
+            <li><span class="code-bit">O(log n)</span> : Logaritmik. Waktu bertambah lambat meskipun data bertambah besar.
+                <ul>
+                    <li>Contoh: Binary search pada list yang sudah diurutkan.</li>
+                </ul>
+            </li>
+            <li><span class="code-bit">O(n)</span> : Linear. Waktu bertambah sebanding dengan jumlah data.
+                <ul>
+                    <li>Contoh: Linear search pada list.</li>
+                </ul>
+            </li>
+            <li><span class="code-bit">O(n^2)</span> : Kuadratik. Waktu bertambah sangat cepat saat data bertambah.
+                <ul>
+                    <li>Contoh: Nested loop (loop di dalam loop), seperti bubble sort.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Dengan memahami notasi Big-O, kita dapat <span class="highlight">membandingkan efisiensi algoritma dan struktur data</span>, lalu memilih yang paling tepat untuk kasus tertentu.</p>
+        <br>
+        
+        <hr>
+        <h2>Tugas</h2>
+    
+        <div class="practice-item">
+            <div class="practice-header">
+                <span class="practice-title">1. Detail Tugas</span>
+            </div>
+            <p>Silahkan buka dokumen dengan klik tombol kerjakan.</p>
+            <a target="_blank" rel="noopener"href="https://docs.google.com/document/d/1cNU6jadChPlIrju5lCcM_srwGPt1_QXh5B7Ke4SEWWs/edit?usp=sharing" class="practice-btn">Kerjakan</a>
+        </div>
+    
+        <div class="practice-item">
+            <div class="practice-header">
+                <span class="practice-title">2. Link Pengumpulan</span>
+            </div>
+            <p>Silahkan buka link pengumpulan dengan klik tombol kirim.</p>
+            <a target="_blank" rel="noopener"href="https://docs.google.com/forms/d/e/1FAIpQLSd5EFwfjqZixiDWcLwFQEWIM8ZyKHM27CYPpmjF8lxGzG2zmA/viewform?usp=dialog" class="practice-btn">Kirim</a>
+        </div>
+    </div>
+<script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>
