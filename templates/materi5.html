@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementasi Struktur Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python & SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link gor Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style>
+    <!-- Desktop Navbar -->
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+            <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+            <div class="mobile-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <div class="sidebar-close" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-items">
+            <a href="/" class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="/materi" class="sidebar-item">
+                <i class="fas fa-list"></i>
+                <span>List</span>
+            </a>
+            <a href="/#" class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-item fullscreen-toggle">
+                <i class="fas fa-expand"></i>
+                <span>Fullscreen</span>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <div class="container">
+        <h1>Implementasi Struktur Data</h1>
+        <hr>
+        
+        <p>Dalam dunia nyata, struktur data tidak selalu digunakan dalam bentuk tradisional atau murni seperti yang biasa diajarkan. 
+            Justru, struktur data sering kali dimodifikasi, dikombinasikan, atau disesuaikan dengan kebutuhan khusus aplikasi. 
+            Pemikiran Prinsip Pertama (<span class="highlight">First Principle Thinking</span>) mendorong kita untuk memahami inti dari masalah terlebih dahulu, baru memilih atau merancang struktur data yang paling sesuai. 
+            Implementasi struktur data juga tidak selalu berarti membuatnya dari nol. 
+            Bisa saja menggunakan pustaka (<span class="highlight">library</span>) yang sudah ada, asalkan kita benar-benar memahami konsep yang dijalankan di balik kode tersebut.
+        </p>
+        <br>
+        
+        <h3>Struktur Data Fleksibel dan Adaptif</h3>
+        <p>Struktur data tidak boleh dianggap sebagai aturan kaku yang harus diikuti secara ketat. 
+            Sebaliknya, struktur data bersifat fleksibel dan dapat diadaptasi sesuai kebutuhan. 
+            Sebuah antrian (<span class="highlight">queue</span>), misalnya, bisa saja diimplementasikan menggunakan array, linked list, atau bahkan dua buah stack tergantung dari kebutuhan logika aplikasi. 
+            Kita tidak selalu harus menggunakan bentuk "murni" dari struktur data tersebut, selama prinsip dasarnya tetap terpenuhi. 
+            Kita juga bisa mengembangkan struktur data baru dari gabungan beberapa struktur dasar untuk memecahkan masalah yang lebih kompleks. 
+            Struktur data bukan hanya sekadar "apa yang kita tertulis", tapi juga merupakan penyelesaian kreatif dalam pemrograman.
+            Sesuai dengan <span="highlight">First Principle Thinking</span>, tetap harus ada alasan logis yang mendasari keputusan dalam penerapan struktur data.
+        </p>
+
+        <br>
+        <h3>Jenis-Jenis Struktur Data Lanjutan</h3>
+        
+        <h3>Priority Queue</h3>
+        <p>Priority queue merupakan bentuk lanjutan dari queue yang menambahkan logika prioritas dalam pengambilan elemen. Dalam struktur ini, setiap elemen memiliki tingkat prioritas tertentu, sehingga elemen yang memiliki prioritas tertinggi akan diproses terlebih dahulu—terlepas dari urutan kedatangannya.</p>
+        <p>Struktur ini sangat berguna dalam sistem penjadwalan, algoritma pencarian jalur (seperti Dijkstra), dan berbagai aplikasi lain yang membutuhkan pengambilan elemen secara selektif berdasarkan kepentingannya. Priority queue umumnya diimplementasikan menggunakan struktur data heap untuk efisiensi tinggi.</p>
+        <p>Operasi penting seperti penambahan elemen dan pengambilan elemen prioritas memiliki time complexity O(log n). Dalam beberapa implementasi berbasis array tak terurut, pengambilan bisa O(n), namun penyisipan jadi O(1).</p>
+        
+        <p>Ciri atau Proses Utama:</p>
+        <ul>
+            <li>Setiap elemen memiliki nilai prioritas.</li>
+            <li>Pengambilan elemen tidak berdasarkan urutan masuk, tetapi berdasarkan urutan prioritas.</li>
+            <li>Biasanya diimplementasikan menggunakan struktur data heap untuk efisiensi.</li>
+        </ul>
+        
+        <p>Time Complexity:</p>
+        <ul>
+            <li>Insert: <span class="code-bit">O(log n)</span></li>
+            <li>Pop (Extract Max/Min): <span class="code-bit">O(log n)</span></li>
+            <li>Peek (Lihat elemen teratas): <span class="code-bit">O(1)</span></li>
+        </ul>
+        <br>
+        
+        <h3>Deque (Double Ended Queue)</h3>
+        <p>Deque adalah variasi dari struktur queue yang menawarkan fleksibilitas lebih tinggi. Jika queue hanya mengizinkan penambahan di satu ujung dan penghapusan di ujung lainnya, deque memperbolehkan keduanya dilakukan di kedua ujung—baik depan maupun belakang.</p>
+        <p>Struktur ini cocok digunakan dalam situasi yang memerlukan akses dinamis dari dua arah, seperti algoritma sliding window atau penyusunan antrian yang dapat berubah secara real-time.</p>
+        <p>Deque sering kali diimplementasikan dengan doubly linked list atau array melingkar (circular array), yang memungkinkan operasi efisien di kedua ujung.</p>
+        
+        <p>Ciri atau Proses Utama:</p>
+        <ul>
+            <li>Bisa menambahkan dan menghapus elemen dari depan dan belakang.</li>
+            <li>Mendukung fleksibilitas lebih dibanding queue biasa.</li>
+        </ul>
+        
+        <p>Time Complexity (pada implementasi optimal):</p>
+        <ul>
+            <li>Insert Front/Rear: <span class="code-bit">O(1)</span></li>
+            <li>Delete Front/Rear: <span class="code-bit">O(1)</span></li>
+            <li>Akses elemen tertentu: <span class="code-bit">O(n)</span> (jika tidak disimpan dalam array dengan indeks langsung)</li>
+        </ul>
+        <br>
+        
+        <h3>Set</h3>
+        <p>Dalam dunia pemrograman, set adalah struktur data yang mengelola sekumpulan elemen unik, tanpa memperhatikan urutan penyimpanannya. Berasal dari konsep matematika himpunan, struktur ini sangat berguna untuk operasi yang melibatkan keunikan data, seperti menyaring duplikasi atau mencari elemen tertentu dengan cepat.</p>
+        <p>Set biasanya dibangun dari struktur hash table di balik layar, sehingga mampu melakukan penyisipan dan pencarian dengan waktu yang sangat efisien.</p>
+        
+        <p>Ciri atau Proses Utama:</p>
+        <ul>
+            <li>Tidak boleh ada elemen yang duplikat.</li>
+            <li>Operasi pencarian dan penyisipan sangat cepat (biasanya <span class="code-bit">O(1)</span>).</li>
+        </ul>
+        
+        <p>Time Complexity (menggunakan hash-based set):</p>
+        <ul>
+            <li>Insert: <span class="code-bit">O(1)</span></li>
+            <li>Delete: <span class="code-bit">O(1)</span></li>
+            <li>Search: <span class="code-bit">O(1)</span></li>
+            <li>Iterasi keseluruhan: <span class="code-bit">O(n)</span></li>
+        </ul>
+        <p>(Note: Dalam kasus terburuk—misal tabrakan hash—bisa menjadi <span class="code-bit">O(n)</span>, tapi sangat jarang terjadi.)</p>
+        <br>
+        
+        <h3>Heap</h3>
+        <p>Heap adalah struktur data berbentuk pohon biner yang dirancang untuk menjaga elemen maksimum atau minimum berada di posisi teratas. Struktur ini memiliki aturan khusus, di mana setiap elemen induk selalu lebih besar atau lebih kecil dari anak-anaknya, tergantung pada apakah itu max-heap atau min-heap.</p>
+        <p>Heap menjadi fondasi penting dalam implementasi priority queue dan sering digunakan dalam algoritma seperti heapsort atau sistem manajemen antrian dengan prioritas.</p>
+        <p>Implementasi heap paling umum menggunakan array, di mana hubungan induk-anak diatur berdasarkan indeks.</p>
+        
+        <p>Ciri atau Proses Utama:</p>
+        <ul>
+            <li>Struktur berbentuk pohon biner.</li>
+            <li>Setiap elemen anak selalu lebih besar (max-heap) atau lebih kecil (min-heap) dari induknya.</li>
+            <li>Mendukung operasi ekstraksi elemen maksimum/minimum dengan efisien.</li>
+        </ul>
+        
+        <p>Time Complexity:</p>
+        <ul>
+            <li>Insert: <span class="code-bit">O(log n)</span></li>
+            <li>Extract Max/Min: <span class="code-bit">O(log n)</span></li>
+            <li>Build Heap dari array: <span class="code-bit">O(n)</span></li>
+            <li>Search arbitrary element: <span class="code-bit">O(n)</span></li>
+        </ul>
+        <br>
+        
+        <h3>Trie</h3>
+        <p>Trie adalah struktur data pohon yang didesain khusus untuk mengelola string atau kumpulan kata. Setiap simpul (node) dalam trie mewakili satu karakter, dan jalur dari akar ke simpul tertentu membentuk sebuah kata atau prefiks.</p>
+        <p>Struktur ini sangat berguna dalam aplikasi seperti sistem autocomplete, pengecekan ejaan, dan pencarian kata berbasis awalan. Tidak seperti array atau list, trie menyimpan data secara bercabang, memungkinkan penghematan ruang dan efisiensi pencarian saat ada banyak kata dengan awalan yang sama.</p>
+        <p>Trie bisa mengelola data dalam jumlah besar dengan awalan yang sama tanpa mengulang karakter berulang.</p>
+        
+        <p>Ciri atau Proses Utama:</p>
+        <ul>
+            <li>Setiap node mewakili satu karakter.</li>
+            <li>Menyimpan banyak kata dengan awalan yang sama secara efisien.</li>
+            <li>Pencarian kata atau awalan dapat dilakukan dalam waktu linear terhadap panjang string.</li>
+        </ul>
+        
+        <p>Time Complexity:</p>
+        <ul>
+            <li>Insert: <span class="code-bit">O(k)</span></li>
+            <li>Search: <span class="code-bit">O(k)</span></li>
+            <li>Delete: <span class="code-bit">O(k)</span></li>
+        </ul>
+        <p>(k = panjang kata atau string yang dimasukkan/dicari)</p>
+        <br>
+        
+        <div class="accordion">
+            <button class="accordion-header">
+                Contoh Implementasi Struktur Data dalam Kasus Nyata
+                <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+                <p>Berikut adalah beberapa contoh implementasi struktur data dalam aplikasi nyata:</p>
+                <ul>
+                    <li><span class="highlight">Priority Queue</span>: Sistem antrian rumah sakit, di mana pasien dengan kondisi kritis mendapat prioritas lebih tinggi.</li>
+                    <li><span class="highlight">Deque</span>: Implementasi undo-redo dalam aplikasi editor, di mana perubahan dapat ditambahkan atau dihapus dari kedua ujung.</li>
+                    <li><span class="highlight">Set</span>: Penyaringan duplikasi dalam proses pengumpulan data, seperti alamat email yang unik.</li>
+                    <li><span class="highlight">Heap</span>: Algoritma dijkstra untuk mencari jalur terpendek dalam peta digital.</li>
+                    <li><span class="highlight">Trie</span>: Fitur autocomplete pada mesin pencari atau keyboard ponsel pintar.</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <p>
+            Jangan lupa bahwa contoh diatas hanyalah salah satu contoh dari pengembangan struktur data.
+            Masih banyak pengembangan struktur data yang masih belum dibahas dan teman-teman bisa pelajari.
+
+        </p>
+        <hr>
+        
+        <h2>Tugas</h2>
+        
+        <div class="practice-item">
+            <div class="practice-header">
+                <span class="practice-title">1. Detail Tugas</span>
+            </div>
+            <p>Silahkan buka dokumen dengan klik tombol kerjakan.</p>
+            <a target="_blank" rel="noopener"href="https://docs.google.com/document/d/1_51iHhCxZMi7k5Qp6yzaWI38VP7VaEMe-VwKV37khwM/edit?usp=sharing" class="practice-btn">Kerjakan</a>
+        </div>
+
+        <div class="practice-item">
+            <div class="practice-header">
+                <span class="practice-title">2. Link Pengumpulan</span>
+            </div>
+            <p>Silahkan buka link pengumpulan dengan klik tombol kirim.</p>
+            <a target="_blank" rel="noopener"href="https://docs.google.com/forms/d/e/1FAIpQLSd5EFwfjqZixiDWcLwFQEWIM8ZyKHM27CYPpmjF8lxGzG2zmA/viewform?usp=dialog" class="practice-btn">Kirim</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>

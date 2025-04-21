@@ -37,3 +37,7 @@ def configure_routes(app):
     @app.route("/materi/p4")
     def pertemuan4():
         return render_template("materi4.html")
+    
+    @app.route("/materi/p5")
+    def pertemuan5():
+        return render_template("materi5.html")
