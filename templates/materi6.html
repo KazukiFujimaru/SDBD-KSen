@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengantar Basis Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python & SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style>
+        <!-- Desktop Navbar -->
+        <div class="navbar">
+            <div class="nav-left">
+                <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+                <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+                <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+                <div class="mobile-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <div class="sidebar-close" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-items">
+                <a href="/" class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/materi" class="sidebar-item">
+                    <i class="fas fa-list"></i>
+                    <span>List</span>
+                </a>
+                <a href="/#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div class="sidebar-item fullscreen-toggle">
+                    <i class="fas fa-expand"></i>
+                    <span>Fullscreen</span>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay" id="overlay"></div>
+    <div class="container">
+        <h1>Pengantar Basis Data (Database)</h1>
+        <hr>
+        <h3>Bagaimana Komputer Menyimpan Data</h3>
+        <p>Komputer menyimpan data dalam bentuk bit dan byte di media penyimpanan seperti harddisk, SSD, atau memori. Untuk memudahkan pengguna, data ini dikemas dalam struktur file yang bisa dikenali oleh sistem operasi, misalnya <span class="code-bit">.txt</span>, <span class="code-bit">.docx</span>, <span class="code-bit">.jpg</span>, dan lainnya.
+            Setiap file berisi informasi tertentu dan bisa dibaca oleh aplikasi yang sesuai. Misalnya, file <span class="code-bit">.mp3</span> dibaca oleh pemutar musik, dan file <span class="code-bit">.json</span> dibaca oleh aplikasi yang mengelola data.</p>
+        <p>Namun, metode penyimpanan ini memiliki keterbatasan ketika data menjadi kompleks, saling berkaitan, dan perlu diakses oleh banyak pengguna secara bersamaan. Di sinilah konsep database muncul sebagai solusi.</p>
+        <br>
+        <h3>Kelebihan dan Keterbatasan File Biasa</h3>
+        <b>Kelebihan:</b>
+        <ul>
+            <li>Mudah dibuat dan digunakan (misal .txt, .csv)</li>
+            <li>Tidak memerlukan perangkat lunak tambahan</li>
+            <li>Cocok untuk data sederhana, jumlah kecil</li>
+        </ul>
+        <b>Keterbatasan:</b>
+        <ul>
+            <li>Tidak efisien untuk mencari atau memfilter data besar</li>
+            <li>Sulit untuk menjaga integritas dan konsistensi</li>
+            <li>Tidak mendukung relasi antar data</li>
+            <li>Tidak aman untuk akses banyak pengguna sekaligus</li>
+        </ul>
+        <br>
+        <h3>Mengapa Database Ada?</h3>
+        <p>Secara umum, penggunaan database memberikan:</p>
+        <ul>
+            <li><span class="highlight">Efisiensi:</span> Database dapat mengatur data dalam struktur tabel sehingga proses pencarian, penyimpanan, dan modifikasi menjadi jauh lebih cepat.</li>
+            <li><span class="highlight">Skalabilitas:</span> Database mampu menangani data dalam jumlah besar dan mendukung banyak pengguna dalam waktu yang bersamaan.</li>
+            <li><span class="highlight">Integritas:</span> Database mendukung aturan validasi, relasi antar tabel, dan mekanisme kontrol untuk menjaga data tetap konsisten dan benar.</li>
+        </ul>
+        <br>
+        <h3>Kapan Database Dibutuhkan?</h3>
+        <p>Tidak semua penyimpanan data membutuhkan database. Secara umum, database dibutuhkan jika:</p>
+        <ul>
+            <li>Data kompleks dan saling berkaitan (misal: siswa – mata kuliah – dosen)</li>
+            <li>Jumlah data besar dan perlu pencarian cepat</li>
+            <li>Akses dilakukan oleh banyak pengguna</li>
+            <li>Dibutuhkan validasi dan konsistensi</li>
+            <li>Data berubah secara aktif, bukan hanya dibaca</li>
+        </ul>
+        <br>
+        <!-- Quiz Form -->
+        <div class="quiz-container">
+            <h4>Mengapa suatu aplikasi menggunakan database dibandingkan file biasa?</h4>
+            <div class="quiz-options">
+            <label class="quiz-option">
+                <input type="radio" name="quiz-1"> Karena database lebih murah dan mudah digunakan
+            </label>
+            <label class="quiz-option">
+                <input type="radio" name="quiz-1"> Karena database lebih cocok untuk menyimpan segala data
+            </label>
+            <label class="quiz-option" data-correct="true">
+                <input type="radio" name="quiz-1"> Karena database mendukung struktur data kompleks dan akses efisien
+            </label>
+            <label class="quiz-option">
+                <input type="radio" name="quiz-1"> Karena database bisa dijalankan melalui server
+            </label>
+            </div>
+            <button class="submit-btn">Submit</button>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-explanation hidden">
+            <p>Database mendukung struktur data kompleks dan akses efisien. Walaupun database nantinya lebih mudah digunakan untuk aplikasi dengan skala yang besar dan bisa dijalankan di server (bukan local), alasan utama aplikasi menggunakan database tetap; yaitu agar data yang aplikasi butuhkan dapat disimpan dengan terstruktur untuk memudahkan akses.</p>
+            </div>
+        </div>
+
+        <div class="hidden-content hidden">
+            <h3>Sekilas Tentang Database</h3>
+            <p>Secara luas, <b>database adalah metode penyimpanan data secara terstruktur</b>. Struktur database memungkinkan data untuk diatur dalam format yang mudah dicari, disaring, dan dimanipulasi. Meskipun istilah "database" bisa berarti sekumpulan data yang disusun secara terstruktur, dalam praktiknya istilah ini merujuk pada <b>sistem pengelolaan data terstruktur</b>.</p>
+
+            <p>Untuk mengelola database, kita membutuhkan sebuah perangkat lunak bernama <span class="highlight">DBMS (Database Management System)</span>. DBMS adalah sistem yang mengatur proses pembuatan, pembacaan, pengubahan, dan penghapusan data secara efisien. DBMS memungkinkan kita untuk menggunakan database dengan memberikan fitur-fitur pengelolaan database.</p>
+
+            <p>Contoh DBMS: <a target="_blank" rel="noopener" href="https://www.mysql.com/">MySQL</a>, <a target="_blank" rel="noopener" href="https://www.postgresql.org/">PostgreSQL</a>, <a target="_blank" rel="noopener" href="https://www.sqlite.org/">SQLite</a>, <a target="_blank" rel="noopener" href="https://www.mongodb.com/">MongoDB</a>, dan lainnya.</p>
+            <br>
+            <h3>SQL dan Database Relasi</h3>
+            <p>SQL (Structured Query Language) adalah bahasa standar yang digunakan untuk mengakses dan mengelola database relasional, yaitu database yang menyimpan data dalam bentuk tabel. Setiap tabel terdiri dari baris (data) dan kolom (atribut).</p>
+            
+            <p>Ciri khas dari database relasional:</p>
+            <ul>
+                <li>Data disimpan dalam tabel-tabel yang memiliki relasi satu sama lain</li>
+                <li>Setiap tabel bisa dihubungkan melalui kolom tertentu (misalnya dengan memakai id, user_id)</li>
+                <li>SQL digunakan untuk menulis query seperti SELECT, INSERT, UPDATE, dan DELETE</li>
+            </ul>
+
+            <pre class="code-box"><code class="language-sql">SELECT * FROM mahasiswa WHERE jurusan = 'Teknologi informasi';</code></pre>
+            <br>
+            <!-- Quiz Form -->
+            <div class="quiz-container">
+                <h4>Sederhananya, apa itu SQL?</h4>
+                <div class="quiz-options">
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-2"> Sebuah jenis file penyimpanan untuk data
+                </label>
+                <label class="quiz-option" data-correct="true">
+                    <input type="radio" name="quiz-2"> Bahasa untuk akses database relasi
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-2"> Bahasa pemrograman untuk membuat aplikasi
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-2"> Aplikasi untuk menjalankan database
+                </label>
+                </div>
+                <button class="submit-btn">Submit</button>
+                <div class="quiz-feedback"></div>
+                <div class="quiz-explanation hidden">
+                <p>SQL (Structured Query Language) adalah bahasa pemrograman yang bisa digunakan oleh aplikasi untuk mengakses database relasi. SQL sendiri tidak menjalankan database, database dijalankan melalui aplikasi-aplikasi DBMS. SQL hanyalah bahasa yang digunakan untuk mengakses data. Jadi, DBMS membuat Database berjalan yang setelahnya database ini dapat diatur melalui SQL.</p>
+                </div>
+            </div>
+            <div class="hidden-content hidden">
+                <h3>Sekilas Tentang Implementasi Database</h3>
+                <p>Dalam praktiknya, database bisa diimplementasikan dalam dua cara utama:</p>
+
+                <p><strong>Local Database (seperti SQLite)</strong></p>
+                <p>Database langsung disimpan dalam satu file (<span class="code-bit">.db</span>) dengan akses langsung oleh aplikasi, tanpa server. Cocok untuk aplikasi skala kecil atau aplikasi offline. Database lokal juga lebih condong digunakan untuk aplikasi desktop dan bahkan digunakan pada beberapa fitur (seperti pencarian) di sistem operasi.</p>
+                <br>
+                <p><strong>Client/Server Database (seperti MySQL)</strong></p>
+                <p>Database dijalankan dalam sebuah server database. Aplikasi (client) mengakses database melalui koneksi jaringan (TCP/IP) untuk mengirimkan instruksi yang nantinya akan diterima oleh server dan diproses oleh server. Database server cocok untuk aplikasi web, sistem multi-user, dan aplikasi skala besar karena bisa diakses dari banyak tempat sekaligus.</p>
+                <hr>
+                <h2>Tugas</h2>
+                <div class="practice-item">
+                    <div class="practice-header">
+                        <span class="practice-title">1. Detail Tugas</span>
+                    </div>
+                    <p>Silahkan buka dokumen dengan klik tombol kerjakan.</p>
+                    <a target="_blank" rel="noopener"href="#" class="practice-btn">Kerjakan</a>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-header">
+                        <span class="practice-title">2. Link Pengumpulan</span>
+                    </div>
+                    <p>Silahkan buka link pengumpulan dengan klik tombol kirim.</p>
+                    <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSemyeZE_EjVjhdxmpI2OnU_igECG34Yf4jSx5ykAzHjRm4hvg/viewform?usp=dialog" class="practice-btn">Kirim</a>
+                </div>
+            </div>
+             <div class="footer-content">
+                <p>&copy; <span id="year"></span> Kazuki Fujimaru - RIT</p>
+            </div>  
+    </div>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>
+

@@ -41,20 +41,20 @@ class StackApp:
         # Jika data ada
         if value:
             # Fungsi stack, silahkan isi
-
+            self.update_display()
         else:
             messagebox.showwarning("Peringatan", "Masukkan nilai untuk Push")
     
     def pop(self):
         if self.data:
             # Fungsi stack, silahkan isi
-
+            self.update_display()
         else:
             messagebox.showwarning("Peringatan", "Stack kosong")
     
     def peek(self):
         if self.data:
-            messagebox.showinfo("Peek", isi fungsi)
+            messagebox.showinfo("Peek", "isi fungsi")
         else:
             messagebox.showwarning("Peringatan", "Stack kosong")
 
