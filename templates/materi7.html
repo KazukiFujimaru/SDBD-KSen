@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulasi Data dan Transaksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python & SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style>
+        <!-- Desktop Navbar -->
+        <div class="navbar">
+            <div class="nav-left">
+                <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+                <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+                <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+                <div class="mobile-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <div class="sidebar-close" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-items">
+                <a href="/" class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/materi" class="sidebar-item">
+                    <i class="fas fa-list"></i>
+                    <span>List</span>
+                </a>
+                <a href="/#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div class="sidebar-item fullscreen-toggle">
+                    <i class="fas fa-expand"></i>
+                    <span>Fullscreen</span>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay" id="overlay"></div>
+    <div class="container">
+        <h1>Manipulasi Data & Transaksi</h1>
+        <hr>
+        
+        <h3>Apa itu Manipulasi Data?</h3>
+        <p>DBMS pasti memiliki fitur untuk mengelola data, sehingga DBMS pasti memiliki fitur untuk memanipulasi data. Manipulasi data mencakup operasi <b>Create, Read, Update, dan Delete</b> yang dikenal dengan istilah <b>CRUD</b>. SQL sebagai bahasa standar untuk mengakses dan memanipulasi database menyediakan sintaks lengkap untuk operasi manipulasi data. Tanpa kemampuan ini, database hanya menjadi tempat penyimpanan statis yang tidak bisa digunakan secara dinamis oleh aplikasi.</p>
+        <br>
+        <p>Manipulasi data adalah proses perubahan data yang sudah ada dalam sistem. Dalam database, manipulasi data berarti melakukan operasi terhadap isi tabel menambahkan data baru, membaca data yang sudah ada, mengubah data, atau menghapusnya. Operasi ini memungkinkan kita menjaga informasi dalam database agar tetap relevan dan akurat terhadap kebutuhan aplikasi atau bisnis.</p>
+
+        <p>Lebih dari sekadar CRUD, SQL juga memiliki cara untuk manipulasi yang lebih kompleks melalui fitur seperti <span class="code-bit">WHERE</span> untuk menyaring data, <span class="code-bit">ORDER BY</span> untuk mengurutkan hasil, dan <span class="code-bit">LIMIT</span> untuk membatasi jumlah data yang ditampilkan. Fitur-fitur ini memperkuat kontrol pengguna terhadap data yang sedang dimanipulasi, serta meningkatkan efisiensi dan fleksibilitas pengolahan data.</p>
+        <br>
+        <!-- Accordion -->
+        <div class="accordion">
+            <button class="accordion-header">
+            Operasi CRUD dalam SQL <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+            <p><span class="highlight">Create (INSERT):</span> Menambahkan data baru ke dalam tabel</p>
+            <pre class="code-box"><code class="language-sql">INSERT INTO mahasiswa (nama, jurusan) VALUES ('John Doe', 'Informatika');</code></pre>
+            
+            <p><span class="highlight">Read (SELECT):</span> Membaca/mengambil data dari tabel</p>
+            <pre class="code-box"><code class="language-sql">SELECT * FROM mahasiswa WHERE jurusan = 'Informatika';</code></pre>
+            
+            <p><span class="highlight">Update (UPDATE):</span> Mengubah data yang sudah ada</p>
+            <pre class="code-box"><code class="language-sql">UPDATE mahasiswa SET nilai = 85 WHERE nama = 'John Doe';</code></pre>
+
+            
+            <p><span class="highlight">Delete (DELETE):</span> Menghapus data dari tabel</p>
+            <pre class="code-box"><code class="language-sql">DELETE FROM mahasiswa WHERE nama = 'John Doe';</code></pre>
+        </div>
+        <br>
+        <h3>Transaksi Database</h3>
+        <p>Saat memanipulasi data, sangat penting untuk memastikan bahwa proses berjalan dengan aman dan tidak merusak integritas data. Kesalahan sekecil apapun dalam operasi seperti penghapusan atau pengubahan bisa berdampak besar, apalagi jika dilakukan secara bersamaan oleh banyak pengguna. Untuk mengatasi ini, sistem database menyediakan fitur <b>transaksi</b>.</p>
+
+        <p>Transaksi adalah serangkaian operasi database yang harus dieksekusi sebagai satu kesatuan. Jika satu bagian dari transaksi gagal, maka seluruh operasi bisa dibatalkan untuk menghindari kerusakan data. Transaksi harus mematuhi konsep <b>ACID</b>: Atomicity, Consistency, Isolation, dan Durability (pelajari lebih lanjut di <a href="https://dqlab.id/mengenal-konsep-acid-dalam-pelatihan-mysql" target="_blank" rel="noopener">sini</a>). Istilah "transaksi" sendiri diambil dari dunia keuangan, menggambarkan suatu pertukaran yang harus diproses secara utuh — semua atau tidak sama sekali.</p>
+        <br>
+        <div class="accordion">
+            <button class="accordion-header">
+            Penjelasan Prinsip ACID <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+            <p><span class="highlight">Atomicity:</span> Transaksi harus berjalan secara utuh - semua operasi berhasil atau semuanya dibatalkan.</p>
+            <p><span class="highlight">Consistency:</span> Database harus tetap dalam keadaan yang valid sebelum dan sesudah transaksi.</p>
+            <p><span class="highlight">Isolation:</span> Transaksi yang berjalan bersamaan tidak saling mengganggu.</p>
+            <p><span class="highlight">Durability:</span> Hasil transaksi yang berhasil harus tetap tersimpan meskipun sistem mengalami kegagalan.</p>
+            </div>
+        </div>
+        <br>
+        <h3>Mengapa Manipulasi Data Dijalankan pada Query?</h3>
+        <p>Beberapa fungsi manipulasi data seperti penyaringan (<span class="code-bit">WHERE</span>), pengurutan (<span class="code-bit">ORDER BY</span>), dan pembatasan hasil (<span class="code-bit">LIMIT</span>) sebenarnya bisa juga dilakukan di sisi aplikasi setelah data diambil dari database. Fakta ini mungkin terlihat fleksibel, terutama dalam kasus sederhana.</p>
+
+        <p>Namun, menjalankan manipulasi ini langsung di query SQL jauh lebih efisien karena beban kerja diserahkan ke server database yang memang dioptimalkan untuk melakukan operasi tersebut. Manipulasi yang dilakukan oleh query pada database mengurangi beban pada aplikasi dan menghemat <b>bandwidth</b> (jumlah maksimal pengiriman yang bisa dilakukan pada saat proses pertukaran data) karena data yang diambil sudah tersaring sejak awal.</p>
+        <br>
+        <h4>Kapan Menggunakan Query vs Aplikasi?</h4>
+        <p>Secara umum, manipulasi data sebaiknya dilakukan di query ketika:</p>
+        <ul>
+            <li>Data yang ditarik sangat besar</li>
+            <li>Proses manipulasi bisa diselesaikan oleh SQL</li>
+            <li>Performa sistem terbatas atau diprioritaskan</li>
+        </ul>
+
+        <p>Sebaliknya, manipulasi oleh aplikasi bisa berguna saat logika terlalu kompleks untuk SQL atau perlu dikombinasikan dengan input pengguna secara langsung. Memahami kapan menggunakan query dan kapan menggunakan kode aplikasi adalah bagian penting dari desain sistem yang efisien.</p>
+        <br>
+        <pre class="code-box"><code class="language-sql">-- Contoh query dengan manipulasi data
+SELECT nama, nilai 
+FROM mahasiswa 
+WHERE jurusan = 'Informatika' AND nilai > 80 
+ORDER BY nilai DESC 
+LIMIT 10;</code></pre>
+<br>
+        <!-- Quiz Form -->
+        <div class="quiz-container">
+            <h4>Jadi, mengapa manipulasi data sebaiknya dilakukan di query database daripada di aplikasi?</h4>
+            <div class="quiz-options">
+            <label class="quiz-option">
+                <input type="radio" name="quiz-2"> Karena aplikasi tidak bisa melakukan manipulasi data
+            </label>
+            <label class="quiz-option" data-correct="true">
+                <input type="radio" name="quiz-2"> Karena query mengurangi beban kerja aplikasi
+            </label>
+            <label class="quiz-option">
+                <input type="radio" name="quiz-2"> Karena SQL lebih mudah dipelajari daripada bahasa pemrograman
+            </label>
+            <label class="quiz-option">
+                <input type="radio" name="quiz-2"> Karena database lebih aman daripada aplikasi
+            </label>
+            </div>
+            <button class="submit-btn">Submit</button>
+            <div class="quiz-feedback"></div>
+            <div class="quiz-explanation hidden">
+            <p>
+                Manipulasi data di query database berarti query dijalankan pada server database sehingga mengurangi beban pada aplikasi ketika berjalan.
+                Karena data sudah proses, berarti data yang diambil dari database tidak banyak dan data yang diambil tidak perlu diproses ulang sehingga akhirnya beban pada aplikasi berkurang.
+            </p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <h2>Tugas</h2>
+        <div class="practice-item">
+            <div class="practice-header">
+                <span class="practice-title">1. Detail Tugas</span>
+            </div>
+            <p>Silahkan buka dokumen dengan klik tombol kerjakan.</p>
+            <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1JTmugJ5pJ2VOkFdUqf0yGJfEaXxuwKo5UTkdxZw1g6k/edit?usp=sharing" class="practice-btn">Kerjakan</a>
+        </div>
+
+        <div class="practice-item">
+            <div class="practice-header">
+                <span class="practice-title">2. Link Pengumpulan</span>
+            </div>
+            <p>Silahkan buka link pengumpulan dengan klik tombol kirim.</p>
+            <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSemyeZE_EjVjhdxmpI2OnU_igECG34Yf4jSx5ykAzHjRm4hvg/viewform?usp=dialog" class="practice-btn">Kirim</a>
+        </div>  
+    </div>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>
+
