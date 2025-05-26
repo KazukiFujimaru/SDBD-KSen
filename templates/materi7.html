@@ -78,17 +78,17 @@
             </button>
             <div class="accordion-content">
             <p><span class="highlight">Create (INSERT):</span> Menambahkan data baru ke dalam tabel</p>
-            <pre class="code-box"><code class="language-sql">INSERT INTO mahasiswa (nama, jurusan) VALUES ('John Doe', 'Informatika');</code></pre>
+            <pre class="code-box"><code class="language-sql">INSERT INTO mahasiswa (nama, jurusan) VALUES ('Kazuki Fujimaru', 'Teknologi informasi');</code></pre>
             
             <p><span class="highlight">Read (SELECT):</span> Membaca/mengambil data dari tabel</p>
-            <pre class="code-box"><code class="language-sql">SELECT * FROM mahasiswa WHERE jurusan = 'Informatika';</code></pre>
+            <pre class="code-box"><code class="language-sql">SELECT * FROM mahasiswa WHERE jurusan = 'Teknologi informasi';</code></pre>
             
             <p><span class="highlight">Update (UPDATE):</span> Mengubah data yang sudah ada</p>
-            <pre class="code-box"><code class="language-sql">UPDATE mahasiswa SET nilai = 85 WHERE nama = 'John Doe';</code></pre>
+            <pre class="code-box"><code class="language-sql">UPDATE mahasiswa SET nilai = 85 WHERE nama = 'Kazuki Fujimaru';</code></pre>
 
             
             <p><span class="highlight">Delete (DELETE):</span> Menghapus data dari tabel</p>
-            <pre class="code-box"><code class="language-sql">DELETE FROM mahasiswa WHERE nama = 'John Doe';</code></pre>
+            <pre class="code-box"><code class="language-sql">DELETE FROM mahasiswa WHERE nama = 'Kazuki Fujimaru';</code></pre>
         </div>
         <br>
         <h3>Transaksi Database</h3>
@@ -126,7 +126,7 @@
         <pre class="code-box"><code class="language-sql">-- Contoh query dengan manipulasi data
 SELECT nama, nilai 
 FROM mahasiswa 
-WHERE jurusan = 'Informatika' AND nilai > 80 
+WHERE jurusan = 'Teknologi informasi' AND nilai > 80 
 ORDER BY nilai DESC 
 LIMIT 10;</code></pre>
 <br>
