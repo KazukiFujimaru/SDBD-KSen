@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSERT HERE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pgstl.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- Jika diperlukan, untuk codebox agar typescript sesuai dengan bahasa pemrograman-->
+    <!-- Prism.js Core -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- Language Support for Python & SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <!-- Link Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style>
+        <!-- Desktop Navbar -->
+        <div class="navbar">
+            <div class="nav-left">
+                <a href="/" class="nav-icon"><i class="fas fa-home"></i></a>
+                <a href="/materi" class="nav-icon"><i class="fas fa-list"></i></a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-icon"><i class="fas fa-cog"></i></a>
+                <a href="#" class="nav-icon fullscreen-toggle"><i class="fas fa-expand"></i></a>
+                <div class="mobile-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <div class="sidebar-close" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-items">
+                <a href="/" class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/materi" class="sidebar-item">
+                    <i class="fas fa-list"></i>
+                    <span>List</span>
+                </a>
+                <a href="/#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div class="sidebar-item fullscreen-toggle">
+                    <i class="fas fa-expand"></i>
+                    <span>Fullscreen</span>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-overlay" id="overlay"></div>
+    
+    <div class="container">
+        <h1>Relasi Dalam Database</h1>
+        <hr>
+        
+        <h3>Apa itu Relasi dalam Database</h3>
+        <p>Dalam sistem database relasional, data tidak disimpan dalam satu tabel besar, melainkan dibagi ke dalam beberapa tabel yang lebih kecil dan lebih spesifik. Setiap tabel menyimpan data yang berkaitan dengan satu entitas tertentu, misalnya pengguna, produk, atau pesanan.</p>
+        <br>
+        <p>Namun dalam dunia nyata, data tidak pernah berdiri sendiri. Pengguna memiliki pesanan, pesanan memiliki produk, dan produk memiliki kategori. <span class="highlight">Relasi adalah cara untuk menghubungkan tabel-tabel tersebut agar data dapat saling terhubung dan membentuk struktur informasi yang utuh</span>. Tanpa adanya relasi, setiap tabel akan menjadi kumpulan data yang terisolasi dan kita tidak akan mengetahui/memahami data secara keseluruhan.</p>
+        <br>
+        <h3>Hubungan ERD dan Relasi</h3>
+        <p>Sebelum kita membuat tabel dalam database, kita sering menggunakan alat bantu visual bernama <span class="highlight">Entity Relationship Diagram (ERD)</span> untuk merancang struktur database.</p>
+        
+        <p>Dalam ERD, kita menyusun tiga komponen utama:</p>
+        <ul>
+            <li><strong>Entitas</strong>: Objek utama yang datanya ingin kita simpan. Dalam implementasi database, entitas diubah menjadi <span class="highlight">tabel</span>. Misalnya entitas "User" akan menjadi tabel users.</li>
+            <li><strong>Atribut</strong>: Atribut adalah ciri-ciri atau sifat yang dimiliki oleh suatu entitas. Dalam database, atribut diubah menjadi <span class="highlight">kolom dalam tabel</span>. Atribut bisa berupa nama, tanggal lahir, alamat, dan sebagainya. Atribut tidak hanya menyimpan data, tetapi juga merepresentasikan <span class="highlight">sifat atau perilaku</span> dari data itu sendiri, misalnya apakah data itu unik, apakah bisa kosong, atau apakah digunakan sebagai primary key.</li>
+            <li><strong>Relasi</strong>: Relasi adalah koneksi logis antara dua entitas, dan ini diterjemahkan ke dalam bentuk <span class="highlight">foreign key</span> di SQL. Dalam ERD, relasi digambarkan sebagai garis penghubung antara dua entitas, sering disertai dengan keterangan 1:1, 1:N, atau N:M.</li>
+        </ul>
+        <br>
+        <h3>Jenis dari Relasi</h3>
+        <p>Dalam database relasional, terdapat tiga bentuk utama relasi yang dapat terjadi antar tabel. Bentuk relasi ini tergantung pada <span class="highlight">berapa banyak baris dari satu tabel yang bisa dikaitkan dengan baris dari tabel lain</span>.</p>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                1. Relasi One-to-One (1:1)
+                <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+                <p>Dalam relasi ini, satu baris pada tabel pertama hanya terhubung dengan satu baris pada tabel kedua, dan sebaliknya.</p>
+                <p><strong>Contoh:</strong> Tabel <span class="code-bit">users</span> dan tabel <span class="code-bit">user_profiles</span></p>
+                <p>Setiap user memiliki <span class="highlight">satu</span> profil unik.</p>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                2. Relasi One-to-Many (1:N)
+                <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+                <p>Ini adalah bentuk relasi yang paling umum. Satu baris di tabel pertama bisa terhubung ke banyak baris di tabel kedua, tetapi setiap baris di tabel kedua hanya terhubung ke satu baris di tabel pertama.</p>
+                <p><strong>Contoh:</strong> Tabel <span class="code-bit">users</span> dan <span class="code-bit">tabel </span>orders</p>
+                <p>Satu user bisa memiliki <span class="highlight">banyak</span> order.</p>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                3. Relasi Many-to-Many (N:M)
+                <span class="accordion-icon">▶</span>
+            </button>
+            <div class="accordion-content">
+                <p>Dalam beberapa kasus, satu baris di tabel pertama bisa berhubungan dengan banyak baris di tabel kedua, dan sebaliknya. Karena jenis relasi ini tidak bisa langsung diterapkan di database relasional, biasanya kita menyisipkan <span class="highlight">tabel ketiga</span> sebagai penghubung (disebut tabel relasi).</p>
+                <p><strong>Contoh:</strong> Tabel <span class="code-bit">students</span> dan <span class="code-bit">courses</span></p>
+                <p>Satu mahasiswa bisa mengambil banyak mata kuliah, dan satu mata kuliah bisa diambil oleh banyak mahasiswa.</p>
+                <p>Tabel relasi: <span class="code-bit">student_course(student_id, course_id)</span></p>
+            </div>
+        </div>
+        <br>
+        <h3>Primary Key dan Foreign Key</h3>
+        <p>Agar relasi antar tabel bisa dilakukan, kita membutuhkan dua elemen penting dalam desain database: <span class="highlight">primary key</span> dan <span class="highlight">foreign key</span>.</p>
+        <br>
+        <p><strong>Primary key</strong> adalah kolom (atau gabungan beberapa kolom) yang digunakan untuk <span class="highlight">mengidentifikasi setiap baris dalam tabel secara unik</span>. Tanpa primary key, kita tidak bisa memastikan baris mana yang mewakili data tertentu. Kolom ini harus bersifat unik dan tidak boleh kosong. Biasanya kolom yang menggunakan primary key adalah kolom <span class="code-bit">id</span>.</p>
+        <br>
+        <p><strong>Foreign key</strong> adalah kolom dalam satu tabel yang <span class="highlight">merujuk ke primary key di tabel lain</span>. Foreign key inilah yang menciptakan koneksi antar tabel. Ketika kita menambahkan sebuah baris baru di tabel yang memiliki foreign key, maka sistem database akan memeriksa apakah nilai yang dimasukkan memang ada di tabel tujuan.</p>
+        <br>
+        <p>Akhirnya relasi antar tabel terbentuk melalui Primary Key yang menjadi identifikasi unik di tabel asal, dan Foreign Key yang merujuk ke Primary Key tersebut di tabel lain. Foreign Key bertindak sebagai penjaga integritas data dengan memvalidasi bahwa nilai yang dimasukkan/diubah harus sesuai dengan nilai yang ada di tabel referensi.</p>
+        <br>
+        <p><strong>Contoh implementasi SQL:</strong></p>
+        <pre class="code-box"><code class="language-sql">CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY,
+    user_id INT,
+    total DECIMAL(10,2),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);</code></pre>
+        <br>
+        <div class="quiz-container">
+            <h4>Apa yang dimaksud dengan relasi dalam database?</h4>
+
+            <div class="quiz-options">
+                <label class="quiz-option" data-correct="true">
+                    <input type="radio" name="quiz-1"> Cara untuk data dapat saling terhubung dan membentuk struktur informasi yang utuh
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-1"> Cara untuk menyimpan data dalam satu tabel besar agar tabel tersebut dapat digunakan dalam aplikasi
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-1"> Cara untuk merukunkan hubungan antar data pada tabel agar sejahtera
+                </label>
+            </div>
+
+            <button class="submit-btn">Submit</button>
+
+            <div class="quiz-feedback"></div>
+
+            <div class="quiz-explanation hidden">
+                <p>Relasi adalah cara untuk menghubungkan tabel-tabel dalam database agar data dapat saling terhubung dan membentuk struktur informasi yang utuh. Tanpa relasi, data akan terisolasi dalam tabel masing-masing.</p>
+            </div>
+        </div>
+        <br>
+        <div class="quiz-container">
+            <h4>Manakah yang merupakan jenis relasi paling umum dalam database?</h4>
+
+            <div class="quiz-options">
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-2"> One-to-One (1:1)
+                </label>
+                <label class="quiz-option" data-correct="true">
+                    <input type="radio" name="quiz-2"> One-to-Many (1:N)
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz-2"> Many-to-Many (N:M)
+                </label>
+            </div>
+
+            <button class="submit-btn">Submit</button>
+
+            <div class="quiz-feedback"></div>
+
+            <div class="quiz-explanation hidden">
+                <p>Relasi One-to-Many (1:N) adalah bentuk relasi yang paling umum dalam database. Contohnya adalah satu user bisa memiliki banyak order, atau satu kategori bisa memiliki banyak produk.</p>
+            </div>
+        </div>
+
+        <div class="hidden-content hidden">
+            <hr>
+            <h2>Tugas</h2>
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">1. Detail Tugas</span>
+                </div>
+                <p>Silahkan buka dokumen dengan klik tombol kerjakan.</p>
+                <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1dl3Y4-4V4DrFl5UUG2ZOYnZso4TqaJ0e3gvMTEQhggI/edit?usp=sharing" class="practice-btn">Kerjakan</a>
+            </div>
+
+            <div class="practice-item">
+                <div class="practice-header">
+                    <span class="practice-title">2. Link Pengumpulan</span>
+                </div>
+                <p>Silahkan buka link pengumpulan dengan klik tombol kirim.</p>
+                <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSemyeZE_EjVjhdxmpI2OnU_igECG34Yf4jSx5ykAzHjRm4hvg/viewform?usp=dialog" class="practice-btn">Kirim</a>
+            </div> 
+        </div>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Kazuki Fujimaru - RIT</p>
+        </div>      
+    </div>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>
+
