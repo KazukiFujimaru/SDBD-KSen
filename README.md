@@ -3,3 +3,5 @@ Repository untuk Praktikum Struktur Data dan Basis Data, Jurusan Teknologi Infor
 
 # TEST EDITING GITHUB
 Edit isi lewat github online
+
+### EDIT INI DILAKUKAN DI VSCODE PC
