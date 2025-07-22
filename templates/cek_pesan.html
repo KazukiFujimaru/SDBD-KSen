@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Pesan Pribadi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        
+        /* PALET WARNA BARU ANDA */
+        :root {
+            --primary-color: #1c2331;    /* Latar Belakang Kartu */
+            --background-color: #222b40; /* Latar Belakang Body */
+            --input-bg-color: #3b4152;   /* Latar Belakang Input */
+            --muted-color: #5c6375;      /* Border & Teks Bantuan */
+            --text-neutral: #e0e0e0;     /* Teks Umum */
+            --text-contrast: #ffffff;    /* Teks Utama & Tombol */
+            
+            /* Warna untuk notifikasi tetap dipertahankan agar jelas */
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-neutral);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--primary-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--text-contrast);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--text-neutral);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-neutral);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--muted-color);
+            background-color: var(--input-bg-color);
+            color: var(--text-contrast);
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--text-contrast);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+        
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px var(--input-bg-color) inset !important;
+            -webkit-text-fill-color: var(--text-contrast) !important;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--muted-color);
+            color: var(--text-contrast);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #717a8f; /* Versi lebih terang dari --muted-color */
+        }
+
+        #result {
+            margin-top: 30px;
+            text-align: left;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+            white-space: pre-wrap;
+        }
+
+        #result.success {
+            background-color: #1b4d2f;
+            border: 1px solid var(--success-color);
+            color: #d4edda;
+            display: block;
+        }
+        
+        #result.error {
+            background-color: #582126;
+            border: 1px solid var(--danger-color);
+            color: #f8d7da;
+            display: block;
+        }
+
+        #result h3 {
+            margin-top: 0;
+            color: var(--text-contrast);
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h2>Message for you</h2>
+        <p>Masukkan NPM dan Nilai akhir pada tanggal 23/07/2025</p>
+        
+        <form id="pesanForm">
+            <div class="form-group">
+                <label for="npm">Nomor Pokok Mahasiswa (NPM)</label>
+                <input type="text" id="npm" placeholder="Contoh: 24072123033" required>
+            </div>
+            <div class="form-group">
+                <label for="nilai">Nilai Akhir</label>
+                <input type="password" id="nilai" placeholder="Masukkan nilai yang ada pada SIMAK" required>
+            </div>
+            <button type="submit">Open</button>
+        </form>
+
+        <div id="result"></div>
+    </main>
+
+    <script>
+        document.getElementById('pesanForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const npm = document.getElementById('npm').value;
+            const nilai = document.getElementById('nilai').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.className = 'info';
+            resultDiv.style.display = 'block';
+            resultDiv.style.color = 'var(--text-neutral)';
+            resultDiv.textContent = 'Mengecek data...';
+
+            try {
+                const response = await fetch('/api/cek_pesan', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ npm, nilai }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    resultDiv.className = 'success';
+                    resultDiv.innerHTML = `<h3>Pesan untuk Anda:</h3><p>${data.pesan}</p>`;
+                } else {
+                    resultDiv.className = 'error';
+                    resultDiv.textContent = data.error || 'Terjadi kesalahan.';
+                }
+            } catch (error) {
+                resultDiv.className = 'error';
+                resultDiv.textContent = 'Tidak dapat terhubung ke server. Coba lagi nanti.';
+            }
+        });
+    </script>
+</body>
+</html>
